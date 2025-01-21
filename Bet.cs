@@ -32,7 +32,7 @@ namespace BetApplication
                 if (u.balance >= bettedMoney && bettedMoney > 0)
                 {
                     Coupon c = new Coupon(u, bettedMoney, bettedOn, 2);
-                    u.balance -= bettedMoney;
+                    u.BalanceSubstract(bettedMoney);
                     coupons.Add(c);
                 }
                 else
