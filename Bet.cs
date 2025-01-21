@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 namespace BetApplication
 {
     internal class Bet
-    {
-        class Bet
         {
             private string name;
             private List<Coupon> coupons;
@@ -29,7 +27,7 @@ namespace BetApplication
             public void AddCoupon(User u, decimal bettedMoney, string bettedOn)
             {
                 // dodać sprawdzenie czy bettedOn jest na liście pot. zwycięzców
-                if (u.balance >= bettedMoney && bettedMoney > 0)
+                if (u.Balance >= bettedMoney && bettedMoney > 0)
                 {
                     Coupon c = new Coupon(u, bettedMoney, bettedOn, 2);
                     u.BalanceSubstract(bettedMoney);
