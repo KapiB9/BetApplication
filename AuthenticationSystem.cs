@@ -10,9 +10,9 @@ namespace BetApplication
     {
         private List<User> users = new();
         public User SignUp(string firstName, string lastName, string pesel, string email,
-            string birthDate, EnumPlec plec, string creditCard, string login, string password)
+            string birthDate, EnumGender gender, string creditCard, string login, string password)
         {
-            User user = new(firstName, lastName, pesel, email, birthDate, plec, creditCard, login, password);
+            User user = new(firstName, lastName, pesel, email, birthDate, gender, creditCard, login, password);
             users.Add(user);
             return user;
         }

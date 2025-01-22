@@ -32,7 +32,7 @@ abstract class Bet
             if (u.Balance >= bettedMoney && bettedMoney > 0)
             {
                 Coupon c = new Coupon(u, bettedMoney, bettedOn, 2);
-                u.Balance -= bettedMoney;
+                u.BalanceSubstract(bettedMoney);
                 coupons.Add(c);
             }
             else
