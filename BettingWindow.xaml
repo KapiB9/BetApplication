@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BetApplication"
         mc:Ignorable="d"
-        Title="BettingWindow" Height="450" Width="880">
+        Title="BettingWindow" Height="450" Width="880"
+        Loaded="Window_Loaded">
     <Grid Margin="0,0,0,-16" Background="#FF514C4C">
         <Label Content="SigmaBet" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="880" Background="#FF1CDCDB" Foreground="#FFF8F7F7" FontSize="36" FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
-        <Button Content="Profil" Margin="747,0,62,400" Background="{x:Null}" VerticalAlignment="Bottom" Foreground="#FFFBF6F6" FontSize="16" Height="41"/>
+        <Button Name ="Profil" Content="Profil" Margin="747,0,62,400" Background="{x:Null}" VerticalAlignment="Bottom" Foreground="#FFFBF6F6" FontSize="16" Height="41" Click="Profil_Click"/>
+        <ComboBox Name="ActiveBets" Margin="81,150,486,248" SelectionChanged="ActiveBets_SelectionChanged"/>
+        <ComboBox Name="BetChoice" Grid.Column="1" Margin="435,150,132,248"/>
+        <TextBox Name="cashPlaced" TextWrapping="Wrap" Margin="435,272,299,121" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Obstaw" Margin="630,370,98,35" FontSize="22" Background="#FF96D556" FontWeight="Bold" Click="PlaceBet_Click"/>
+        <Button Content="Wyjdź" Margin="23,370,712,35" Grid.Column="1" FontSize="22" Background="#FFCF3737" FontWeight="Bold" Click="Quit_Click"/>
+        <TextBox Name="Sum" TextWrapping="Wrap" Margin="620,272,132,121" FontSize="22" RenderTransformOrigin="0.514,0.564"/>
+        <TextBlock TextWrapping="Wrap" Text="Wygrana obliczana jest: 0,88*twoja _stawka*kurs" Margin="118,272,524,121" FontSize="20" Foreground="#FFFBF9F9"/>
     </Grid>
 </Window>

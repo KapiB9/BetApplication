@@ -15,14 +15,15 @@
         <TextBox Name ="Pesel" TextWrapping="Wrap" Margin="130,264,129,308" FontSize="22"/>
         <TextBox Name ="Firstname" TextWrapping="Wrap" Margin="130,338,129,235" FontSize="22"/>
         <TextBox Name ="Surname" TextWrapping="Wrap" Margin="130,411,130,162" FontSize="22"/>
-        <TextBox Name ="CreditCard" TextWrapping="Wrap" Margin="131,445,129,128" FontSize="22"/>
+        <TextBox Name ="CreditCard" TextWrapping="Wrap" Margin="131,479,129,94" FontSize="22"/>
         
-        <Button Content="Załóż konto" Margin="129,504,129,61" FontSize="22" Click="SigningUp_Click"/>
-        <TextBlock TextWrapping="Wrap" Margin="130,86,107,472" FontSize="22" Foreground="#FFFBF6F6" Text="Login:"/>
+        <Button Content="Załóż konto" Margin="131,533,127,32" FontSize="22" Click="SigningUp_Click" Background="#FF1CDCDB" FontWeight="Bold"/>
+        <TextBlock TextWrapping="Wrap" Margin="131,80,106,477" FontSize="22" Foreground="#FFFBF6F6" Text="Login:"/>
         <TextBlock TextWrapping="Wrap" Text="Hasło" Margin="130,155,107,404" FontSize="22" Foreground="#FFFBF6F6"/>
         <TextBlock TextWrapping="Wrap" Text="Pesel" Margin="129,223,108,336" FontSize="22" Foreground="#FFFBF6F6"/>
         <TextBlock TextWrapping="Wrap" Text="Imię" Margin="130,297,107,262" FontSize="22" Foreground="#FFFBF6F6"/>
         <TextBlock TextWrapping="Wrap" Text="Nazwisko" Margin="130,370,107,189" FontSize="22" Foreground="#FFFBF6F6"/>
+        <TextBlock TextWrapping="Wrap" Text="CreditCard" Margin="131,438,106,121" FontSize="22" Foreground="#FFFBF6F6"/>
 
 
     </Grid>

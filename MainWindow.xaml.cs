@@ -16,13 +16,16 @@ namespace BetApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private User currentUser; // Aktualnie zalogowany użytkownik
+
         public MainWindow()
         {
             InitializeComponent();
-            
+
 
         }
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string login = LoginTextBox.Text;
             string password = PasswordBox.Text;
@@ -45,7 +48,7 @@ namespace BetApplication
                 MessageBox.Show("Błędny login lub hasło.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             // Otwórz okno rejestracji
             SigningUp signingUpWindow = new SigningUp();
@@ -54,5 +57,8 @@ namespace BetApplication
             // Zamknij obecne okno (MainWindow)
             this.Close();
         }
+
     }
 }
+
+            

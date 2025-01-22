@@ -1,0 +1,39 @@
+﻿<Window x:Class="BetApplication.ProfilWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BetApplication"
+        mc:Ignorable="d"
+        Title="ProfilWindow" Height="600" Width="1000">
+    <Grid Margin="0,0,0,-16" Background="#FF514C4C">
+        <Label Content="SigmaBet" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="1000" Background="#FF1CDCDB" Foreground="#FFF8F7F7" FontSize="36" FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
+
+        <!-- Zwiększono wysokość i szerokość obrazu -->
+        <Image Margin="56,120,794,363" OpacityMask="#FF88C77A" Source="/profil_icon.png"/>
+
+        <!-- Zwiększono czcionkę w Label -->
+        <Label Content="Label" Margin="298,138,247,381" FontSize="48"/>
+
+        <!-- Zwiększono TextBox oraz jego rozmieszczenie -->
+        <TextBox TextWrapping="Wrap" Margin="47,432,815,84" FontSize="24" RenderTransformOrigin="0.371,0.317"/>
+
+        <!-- Zwiększono czcionkę TextBlocka i dostosowano jego rozmieszczenie -->
+        <TextBlock TextWrapping="Wrap" Text="Stan konta:" Margin="47,373,815,192" FontSize="24" Foreground="#FFFBF6F6" FontWeight="Bold"/>
+
+        <!-- Zwiększono rozmiar przycisku i poprawiono jego margines -->
+        <Button Name="PLUS" Click="Button_Click" Margin="190,432,736,85">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="C:\Users\Admin\Desktop\studia\project_c#\gui_p\plus.png" Width="60" Height="60"/>
+            </StackPanel>
+        </Button>
+
+        <!-- Zwiększono ListBox i dostosowano margines -->
+        <ListBox Margin="298,357,302,43"/>
+
+        <!-- Zwiększono czcionkę w TextBlock "Lista zakładów:" oraz dopasowano margines -->
+        <TextBlock TextWrapping="Wrap" Text="Lista zakładów:" Margin="300,305,500,243" Foreground="#FFFCF9F9" FontWeight="Bold" FontSize="24" RenderTransformOrigin="0.431,0.543"/>
+        <Button Content="Rozwiąż zakład" Margin="732,474,37,43" FontSize="24" FontWeight="Bold" Background="#FF71EA8C"/>
+        <Button Content="Wróć do betowania" Margin="732,359,37,163" FontSize="24" FontWeight="Bold" Background="#FF1CDCDB" Click="Comeback_Click"/>
+    </Grid>
+</Window>
