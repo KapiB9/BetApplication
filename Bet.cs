@@ -11,7 +11,6 @@ namespace BetApplication
     {
         private string name;
         bool active = true;
-        //dodać listę możliwych opcji
 
         public Bet() { }
 

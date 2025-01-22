@@ -22,9 +22,13 @@ namespace BetApplication
             Lose1 = new Option(o2);
         }
 
-        internal Option Win1 { get => Win; set => Win = value; }
-        internal Option Lose1 { get => Lose; set => Lose = value; }
-        internal Option Draw1 { get => Draw; set => Draw = value; }
+        public    Option Win1 { get => Win; set => Win = value; }
+        public Option Lose1 { get => Lose; set => Lose = value; }
+        public Option Draw1 { get => Draw; set => Draw = value; }
+
+
+        
+
 
         public override void AdjustStake()
         {

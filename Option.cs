@@ -19,10 +19,11 @@ namespace BetApplication
         }
         public Option(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
 
         public decimal BettedOn { get => bettedOn; set => bettedOn = value; }
         public decimal Stake { get => stake; set => stake = value; }
+        public string Name { get => name; set => name = value; }
     }
 }
