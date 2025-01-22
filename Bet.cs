@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BetApplication
 {
+
 internal class Bet
 {
         private string name;
@@ -14,6 +15,7 @@ internal class Bet
         //dodać listę możliwych opcji
 
         public Bet()
+
         {
             coupons = new List<Coupon>();
         }
@@ -35,7 +37,19 @@ internal class Bet
             }
             else
             {
-                Console.WriteLine("Nieprawidłowa kwota zakładu lub niewystarczające środki.");
+
+                // dodać sprawdzenie czy bettedOn jest na liście pot. zwycięzców
+                if (u.Balance >= bettedMoney && bettedMoney > 0)
+                {
+                    Coupon c = new Coupon(u, bettedMoney, bettedOn, 2);
+                    u.BalanceSubstract(bettedMoney);
+                    coupons.Add(c);
+                }
+                else
+                {
+                    Console.WriteLine("Nieprawidłowa kwota zakładu lub niewystarczające środki.");
+                }
+
             }
         }
 

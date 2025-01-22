@@ -30,7 +30,7 @@ namespace BetApplication
         public void EndCoupon()
         {
             decimal winValue = bettedMoney * Stake;
-            User.AddToBalance(winValue);
+            User.BalanceAdd(winValue);
         }
     }
 }
