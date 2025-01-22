@@ -32,5 +32,10 @@ namespace BetApplication
             decimal winValue = bettedMoney * Stake;
             User.BalanceAdd(winValue);
         }
+
+        public decimal PossibleWin()
+        {
+            return bettedMoney * Stake;
+        }
     }
 }
