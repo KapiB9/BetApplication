@@ -14,12 +14,15 @@ namespace BetApplication
 
         public Option()
         {
-            stake = 1.5m;
-            bettedOn = 0;
+            Stake = 1.5m;
+            BettedOn = 0;
         }
         public Option(string name)
         {
             this.name = name;
         }
+
+        public decimal BettedOn { get => bettedOn; set => bettedOn = value; }
+        public decimal Stake { get => stake; set => stake = value; }
     }
 }
