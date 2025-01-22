@@ -23,9 +23,25 @@ namespace BetApplication
 
         }
 
-        //public override void AdjustStake()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public override void AdjustStake()
+        {
+            decimal totalBettedOn = 0;
+            if (Win != null) totalBettedOn += Win.BettedOn;
+            if (Lose != null) totalBettedOn += Lose.BettedOn;
+            if (Draw != null) totalBettedOn += Draw.BettedOn;
+
+            if (Win != null)
+            {
+                Win.Stake = totalBettedOn > 0 ? totalBettedOn / Win.BettedOn : 0; // Odwrotnoœæ proporcji
+            }
+            if (Lose != null)
+            {
+                Lose.Stake = totalBettedOn > 0 ? totalBettedOn / Lose.BettedOn : 0;
+            }
+            if (Draw != null)
+            {
+                Draw.Stake = totalBettedOn > 0 ? totalBettedOn / Draw.BettedOn : 0;
+            }
+        }
     }
 }
