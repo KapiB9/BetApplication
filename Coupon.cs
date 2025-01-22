@@ -36,7 +36,7 @@ namespace BetApplication
 
         public decimal PossibleWin()
         {
-            return bettedMoney * Stake;
+            return bettedMoney * 0.88m * Stake;
         }
     }
 }

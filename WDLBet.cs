@@ -14,32 +14,36 @@ namespace BetApplication
 
         public wdlBet() : base()
         {
-            Draw = new Option("Draw");
+            Draw1 = new Option("Draw");
         }
         public wdlBet(string o1, string o2) : base()
         {
-            Win = new Option(o1);
-            Lose = new Option(o2);
+            Win1 = new Option(o1);
+            Lose1 = new Option(o2);
         }
+
+        internal Option Win1 { get => Win; set => Win = value; }
+        internal Option Lose1 { get => Lose; set => Lose = value; }
+        internal Option Draw1 { get => Draw; set => Draw = value; }
 
         public override void AdjustStake()
         {
             decimal totalBettedOn = 0;
-            if (Win != null) totalBettedOn += Win.BettedOn;
-            if (Lose != null) totalBettedOn += Lose.BettedOn;
-            if (Draw != null) totalBettedOn += Draw.BettedOn;
+            if (Win1 != null) totalBettedOn += Win1.BettedOn;
+            if (Lose1 != null) totalBettedOn += Lose1.BettedOn;
+            if (Draw1 != null) totalBettedOn += Draw1.BettedOn;
 
-            if (Win != null)
+            if (Win1 != null)
             {
-                Win.Stake = totalBettedOn > 0 ? totalBettedOn / Win.BettedOn : 0; // Odwrotnoœæ proporcji
+                Win1.Stake = totalBettedOn > 0 ? totalBettedOn / Win1.BettedOn : 0; // Odwrotnoœæ proporcji
             }
-            if (Lose != null)
+            if (Lose1 != null)
             {
-                Lose.Stake = totalBettedOn > 0 ? totalBettedOn / Lose.BettedOn : 0;
+                Lose1.Stake = totalBettedOn > 0 ? totalBettedOn / Lose1.BettedOn : 0;
             }
-            if (Draw != null)
+            if (Draw1 != null)
             {
-                Draw.Stake = totalBettedOn > 0 ? totalBettedOn / Draw.BettedOn : 0;
+                Draw1.Stake = totalBettedOn > 0 ? totalBettedOn / Draw1.BettedOn : 0;
             }
         }
     }

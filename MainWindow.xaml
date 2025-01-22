@@ -13,7 +13,7 @@
         <TextBox Name="LoginTextBox" TextWrapping="Wrap" Margin="302,137,323,274" FontSize="22"/>
         <TextBlock TextWrapping="Wrap" Text="Hasło:" Margin="302,180,410,236" FontSize="22" Foreground="#FFFBF6F6"/>
         <TextBox Name="PasswordBox" TextWrapping="Wrap" Margin="302,213,323,201" FontSize="22"/>
-        <Button Content="Zaloguj" Margin="302,274,323,139" FontSize="22" Click="LoginButton_Click"/>
-        <Button Content="Załóż konto" Margin="302,331,323,82" FontSize="22" Click="SignUpButton_Click"/>
+        <Button Content="Zaloguj" Margin="302,274,323,139" FontSize="22" Click="LoginButton_Click" Background="#FF1CDCDB" FontWeight="Bold"/>
+        <Button Content="Załóż konto" Margin="302,331,323,82" FontSize="22" Click="SignUpButton_Click" Background="#FF637FCA" FontWeight="Bold"/>
     </Grid>
 </Window>

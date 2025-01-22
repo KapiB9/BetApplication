@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="profil_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="profil_icon.png" />
+  </ItemGroup>
+
 </Project>
