@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BetApplication
 {
-    internal class Coupon
+    public class Coupon
     {
         User user;
         decimal bettedMoney;
@@ -31,6 +31,7 @@ namespace BetApplication
         {
             decimal winValue = bettedMoney * Stake;
             User.BalanceAdd(winValue);
+
         }
 
         public decimal PossibleWin()

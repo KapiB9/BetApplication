@@ -7,22 +7,17 @@ using System.Threading.Tasks;
 namespace BetApplication
 {
 
-abstract class Bet
-{
+    abstract class Bet
+    {
         private string name;
-        private List<Coupon> coupons;
         bool active = true;
         //dodać listę możliwych opcji
 
-        public Bet()
-        {
-            coupons = new List<Coupon>();
-        }
+        public Bet() { }
 
         public Bet(string name) : base()
         {
             this.name = name;
-            this.coupons = new List<Coupon>();
         }
 
         public void AddCoupon(User u, decimal bettedMoney, string bettedOn)
@@ -32,41 +27,29 @@ abstract class Bet
             {
                 Coupon c = new Coupon(u, bettedMoney, bettedOn, 2);
                 u.BalanceSubstract(bettedMoney);
-                coupons.Add(c);
+                u.AddCurrentCoupon(c);
             }
             else
             {
-
-                // dodać sprawdzenie czy bettedOn jest na liście pot. zwycięzców
-                if (u.Balance >= bettedMoney && bettedMoney > 0)
-                {
-                    Coupon c = new Coupon(u, bettedMoney, bettedOn, 2);
-                    u.BalanceSubstract(bettedMoney);
-                    coupons.Add(c);
-                }
-                else
-                {
-                    Console.WriteLine("Nieprawidłowa kwota zakładu lub niewystarczające środki.");
-                }
-
+                Console.WriteLine("Nieprawidłowa kwota zakładu lub niewystarczające środki.");
             }
         }
 
-        public void CloseBet(string winner)
+        public void CloseBet(User user, string winner)
         {
             active = false;
-            foreach (Coupon c in coupons)
+            foreach (Coupon c in user.currentCoupons)
             {
                 if (c.BettedOn != winner)
                 {
                     c.Stake = 0;
                 }
                 c.EndCoupon();
+                user.MoveCouponToPrevious(c);
             }
         }
 
         public abstract void AdjustStake();
-
 
     }
 }

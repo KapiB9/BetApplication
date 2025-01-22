@@ -21,8 +21,8 @@ namespace BetApplication
         string login = string.Empty;
         string password = string.Empty;
         decimal balance;
-        List<Coupon> currentCoupons;
-        List<Coupon> previousCoupons;
+        public List<Coupon> currentCoupons;
+        public List<Coupon> previousCoupons;
 
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
@@ -119,6 +119,19 @@ namespace BetApplication
         {
             Balance -= amount;
         }
+
+        public void AddCurrentCoupon(Coupon coupon)
+        {
+            currentCoupons.Add(coupon);
+        }
+        public void MoveCouponToPrevious(Coupon coupon)
+        {
+            if (currentCoupons.Remove(coupon))
+            {
+                previousCoupons.Add(coupon);
+            }
+        }
+
         public override string ToString()
         {
             return $"Name: {firstName} {lastName}\nBalance: {Balance}$";
