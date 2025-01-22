@@ -1,4 +1,4 @@
-using Projekt;
+using BetApplication;
 
 internal class Program
 {
