@@ -17,10 +17,9 @@ namespace BetApplication
         {
             LoadUsers();
         }
-        public User SignUp(string firstName, string lastName, string pesel, string email,
-            string birthDate, EnumGender gender, string creditCard, string login, string password)
+        public User SignUp(string firstName, string lastName, string pesel, string creditCard, string login, string password)
         {
-            User user = new(firstName, lastName, pesel, email, birthDate, gender, creditCard, login, password);
+            User user = new(firstName, lastName, pesel, creditCard, login, password);
             users.Add(user);
             SaveUsers();
             return user;

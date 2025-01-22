@@ -1,0 +1,29 @@
+﻿<Window x:Class="BetApplication.SigningUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BetApplication"
+        mc:Ignorable="d"
+        Title="SigningUp" Height="600" Width="400">
+    <Grid Margin="0,0,0,-16" Background="#FF514C4C">
+        <Label Content="SigmaBet" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="400" 
+               Background="#FF1CDCDB" Foreground="#FFF8F7F7" FontSize="36" 
+               FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBox Name ="Login" TextWrapping="Wrap" Margin="129,123,130,450" FontSize="22"/>
+        <TextBox Name ="Password" TextWrapping="Wrap" Margin="130,191,129,382" FontSize="22"/>
+        <TextBox Name ="Pesel" TextWrapping="Wrap" Margin="130,264,129,308" FontSize="22"/>
+        <TextBox Name ="Firstname" TextWrapping="Wrap" Margin="130,338,129,235" FontSize="22"/>
+        <TextBox Name ="Surname" TextWrapping="Wrap" Margin="130,411,130,162" FontSize="22"/>
+        <TextBox Name ="CreditCard" TextWrapping="Wrap" Margin="131,445,129,128" FontSize="22"/>
+        
+        <Button Content="Załóż konto" Margin="129,504,129,61" FontSize="22" Click="SigningUp_Click"/>
+        <TextBlock TextWrapping="Wrap" Margin="130,86,107,472" FontSize="22" Foreground="#FFFBF6F6" Text="Login:"/>
+        <TextBlock TextWrapping="Wrap" Text="Hasło" Margin="130,155,107,404" FontSize="22" Foreground="#FFFBF6F6"/>
+        <TextBlock TextWrapping="Wrap" Text="Pesel" Margin="129,223,108,336" FontSize="22" Foreground="#FFFBF6F6"/>
+        <TextBlock TextWrapping="Wrap" Text="Imię" Margin="130,297,107,262" FontSize="22" Foreground="#FFFBF6F6"/>
+        <TextBlock TextWrapping="Wrap" Text="Nazwisko" Margin="130,370,107,189" FontSize="22" Foreground="#FFFBF6F6"/>
+
+
+    </Grid>
+</Window>

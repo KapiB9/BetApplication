@@ -8,15 +8,11 @@ using System.Threading.Tasks;
 
 namespace BetApplication
 {
-    public enum EnumGender { Kobieta, Mężczyzna }
     public class User
     {
         string firstName = string.Empty;
         string lastName = string.Empty;
         string pesel = string.Empty;
-        string email = string.Empty;
-        DateTime birthDate;
-        EnumGender gender;
         string creditCard = string.Empty;
         string login = string.Empty;
         string password = string.Empty;
@@ -38,24 +34,7 @@ namespace BetApplication
                 pesel = value;
             }
         }
-        public string Email { get => email; set => email = value; }
-        public DateTime BirthDate
-        {
-            get => birthDate;
-            set
-            {
-                var age = DateTime.Today.Year - value.Year;
-                if (value > DateTime.Today.AddYears(-age))
-                {
-                    age--;
-                }
-                if (age < 18)
-                {
-                    throw new ArgumentException("Użytkownik musi być pełnoletni, aby założyć konto.");
-                }
-                birthDate = value;
-            }
-        }
+
         public string CreditCard
         {
             get => creditCard;
@@ -89,20 +68,11 @@ namespace BetApplication
             currentCoupons = new();
             previousCoupons = new();
         }
-        public User(string firstName, string lastName, string pesel, string email,
-            string birthDate, EnumGender gender, string creditCard, string login, string password)
+        public User(string firstName, string lastName, string pesel, string creditCard, string login, string password)
         {
             FirstName = firstName;
             LastName = lastName;
             Pesel = pesel;
-            Email = email;
-            if (!DateTime.TryParseExact(birthDate, "dd-MM-yyyy", null,
-                System.Globalization.DateTimeStyles.None, out DateTime bD))
-            {
-                throw new InvalidOperationException("Błędna format daty urodzenia!");
-            }
-            BirthDate = bD;
-            this.gender = gender;
             CreditCard = creditCard;
             Login = login;
             Password = password;

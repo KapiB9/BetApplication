@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BetApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="449" Width="880
+        ">
+    <Grid Margin="0,0,0,-16" Background="#FF514C4C">
+        <Label Content="SigmaBet" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="880" Background="#FF1CDCDB" Foreground="#FFF8F7F7" FontSize="36" FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBlock TextWrapping="Wrap" Text="Login:" Margin="302,0,0,317" FontSize="22" Foreground="#FFFBF6F6" VerticalAlignment="Bottom" HorizontalAlignment="Left" RenderTransformOrigin="0.493,-0.318"/>
+        <TextBox Name="LoginTextBox" TextWrapping="Wrap" Margin="302,137,323,274" FontSize="22"/>
+        <TextBlock TextWrapping="Wrap" Text="Hasło:" Margin="302,180,410,236" FontSize="22" Foreground="#FFFBF6F6"/>
+        <TextBox Name="PasswordBox" TextWrapping="Wrap" Margin="302,213,323,201" FontSize="22"/>
+        <Button Content="Zaloguj" Margin="302,274,323,139" FontSize="22" Click="LoginButton_Click"/>
+        <Button Content="Załóż konto" Margin="302,331,323,82" FontSize="22" Click="SignUpButton_Click"/>
     </Grid>
 </Window>
