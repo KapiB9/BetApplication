@@ -16,7 +16,7 @@
         <Label Content="Label" Margin="298,138,247,381" FontSize="48"/>
 
         <!-- Zwiększono TextBox oraz jego rozmieszczenie -->
-        <TextBox TextWrapping="Wrap" Margin="47,432,815,84" FontSize="24" RenderTransformOrigin="0.371,0.317"/>
+        <TextBox TextWrapping="Wrap" Margin="47,432,815,85" FontSize="24" RenderTransformOrigin="0.371,0.317"/>
 
         <!-- Zwiększono czcionkę TextBlocka i dostosowano jego rozmieszczenie -->
         <TextBlock TextWrapping="Wrap" Text="Stan konta:" Margin="47,373,815,192" FontSize="24" Foreground="#FFFBF6F6" FontWeight="Bold"/>
@@ -24,7 +24,7 @@
         <!-- Zwiększono rozmiar przycisku i poprawiono jego margines -->
         <Button Name="PLUS" Click="Button_Click" Margin="190,432,736,85">
             <StackPanel Orientation="Horizontal">
-                <Image Source="C:\Users\Admin\Desktop\studia\project_c#\gui_p\plus.png" Width="60" Height="60"/>
+                <Image Source="/plus.png" Width="60" Height="60"/>
             </StackPanel>
         </Button>
 
