@@ -9,11 +9,18 @@
         Loaded="Window_Loaded">
     <Grid Margin="0,0,0,-16" Background="#FF514C4C">
         <Label Content="SigmaBet" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="880" Background="#FF1CDCDB" Foreground="#FFF8F7F7" FontSize="36" FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
-        <Button Name ="Profil" Content="Profil" Margin="747,0,62,400" Background="{x:Null}" VerticalAlignment="Bottom" Foreground="#FFFBF6F6" FontSize="16" Height="41" Click="Profil_Click"/>
+        <Button Name="Profil" Margin="753,0,28,398" 
+VerticalAlignment="Bottom" Background="{x:Null}" 
+Height="48" Click="Profil_Click">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="99">
+                <Image Source="/profil.png" Width="42" Height="30"/>
+                <TextBlock Text="Profil" Foreground="#FFFBF6F6" FontSize="18" VerticalAlignment="Center" Height="24" Width="51" FontWeight="Bold"/>
+            </StackPanel>
+        </Button>
         <ComboBox Name="ActiveBets" Margin="81,150,486,248" SelectionChanged="ActiveBets_SelectionChanged"/>
         <ComboBox Name="BetChoice" Grid.Column="1" Margin="435,150,132,248"/>
         <TextBox Name="cashPlaced" TextWrapping="Wrap" Margin="435,272,299,121" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Obstaw" Margin="630,370,98,35" FontSize="22" Background="#FF96D556" FontWeight="Bold" Click="PlaceBet_Click"/>
+        <Button Content="Obstaw" Margin="650,370,78,35" FontSize="22" Background="#FF96D556" FontWeight="Bold" Click="PlaceBet_Click"/>
         <Button Content="Wyjdź" Margin="23,370,712,35" Grid.Column="1" FontSize="22" Background="#FFCF3737" FontWeight="Bold" Click="Quit_Click"/>
         <TextBox Name="Sum" TextWrapping="Wrap" Margin="620,272,132,121" FontSize="22" RenderTransformOrigin="0.514,0.564"/>
         <TextBlock TextWrapping="Wrap" Text="Wygrana obliczana jest: 0,88*twoja _stawka*kurs" Margin="118,272,524,121" FontSize="20" Foreground="#FFFBF9F9"/>

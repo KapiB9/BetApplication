@@ -28,7 +28,7 @@ namespace BetApplication
         {
             Recharge RW = new Recharge();
             RW.Show();
-            this.Close();
+;
         }
         private void Comeback_Click(object sender, RoutedEventArgs e)
         {

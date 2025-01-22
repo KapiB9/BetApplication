@@ -9,10 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="plus.png" />
+    <None Remove="profil.png" />
     <None Remove="profil_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="plus.png" />
+    <Resource Include="profil.png" />
     <Resource Include="profil_icon.png" />
   </ItemGroup>
 
