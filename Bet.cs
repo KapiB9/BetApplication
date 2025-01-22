@@ -6,26 +6,38 @@ using System.Threading.Tasks;
 
 namespace BetApplication
 {
-    internal class Bet
+
+internal class Bet
+{
+        private string name;
+        private List<Coupon> coupons;
+        bool active = true;
+        //dodać listę możliwych opcji
+
+        public Bet()
+
         {
-            private string name;
-            private List<Coupon> coupons;
-            bool active = true;
-            //dodać listę możliwych opcji
+            coupons = new List<Coupon>();
+        }
 
-            public Bet()
+        public Bet(string name) : base()
+        {
+            this.name = name;
+            this.coupons = new List<Coupon>();
+        }
+
+        public void AddCoupon(User u, decimal bettedMoney, string bettedOn)
+        {
+            // dodać sprawdzenie czy bettedOn jest na liście pot. zwycięzców
+            if (u.balance >= bettedMoney && bettedMoney > 0)
             {
-                coupons = new List<Coupon>();
+                Coupon c = new Coupon(u, bettedMoney, bettedOn, 2);
+                u.balance -= bettedMoney;
+                coupons.Add(c);
             }
-
-            public Bet(string name) : base()
+            else
             {
-                this.name = name;
-                this.coupons = new List<Coupon>();
-            }
 
-            public void AddCoupon(User u, decimal bettedMoney, string bettedOn)
-            {
                 // dodać sprawdzenie czy bettedOn jest na liście pot. zwycięzców
                 if (u.Balance >= bettedMoney && bettedMoney > 0)
                 {
@@ -37,22 +49,24 @@ namespace BetApplication
                 {
                     Console.WriteLine("Nieprawidłowa kwota zakładu lub niewystarczające środki.");
                 }
+
             }
-
-            public void CloseBet(string winner)
-            {
-                active = false;
-                foreach (Coupon c in coupons)
-                {
-                    if (c.BettedOn != winner)
-                    {
-                        c.Stake = 0;
-                    }
-                    c.EndCoupon();
-                }
-            }
-
-            //public abstract void AdjustStake();
-
         }
+
+        public void CloseBet(string winner)
+        {
+            active = false;
+            foreach (Coupon c in coupons)
+            {
+                if (c.BettedOn != winner)
+                {
+                    c.Stake = 0;
+                }
+                c.EndCoupon();
+            }
+        }
+
+        //public abstract void AdjustStake();
+
     }
+}
