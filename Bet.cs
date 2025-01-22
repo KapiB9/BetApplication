@@ -15,7 +15,6 @@ abstract class Bet
         //dodać listę możliwych opcji
 
         public Bet()
-
         {
             coupons = new List<Coupon>();
         }

@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace BetApplication
 {
-    internal class AuthenticationSystem
+    public class AuthenticationSystem
     {
         private string xmlfile = "users.xml";
         private List<User> users = new();
@@ -38,17 +38,17 @@ namespace BetApplication
 
         private void SaveUsers()
         {
-            XmlSerializer serializer = new(typeof(List<User>));
+            XmlSerializer xs = new(typeof(List<User>));
             using FileStream fileStream = new(xmlfile, FileMode.Create);
-            serializer.Serialize(fileStream, users);
+            xs.Serialize(fileStream, users);
         }
         private void LoadUsers()
         {
             if (File.Exists(xmlfile))
             {
-                XmlSerializer serializer = new(typeof(List<User>));
+                XmlSerializer xs = new(typeof(List<User>));
                 using FileStream fileStream = new(xmlfile, FileMode.Open);
-                users = (List<User>)serializer.Deserialize(fileStream) ?? new List<User>();
+                users = (List<User>)xs.Deserialize(fileStream) ?? new List<User>();
             }
         }
     }

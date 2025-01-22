@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace BetApplication
 {
-    enum EnumGender { Kobieta, Mężczyzna }
-    internal class User
+    public enum EnumGender { Kobieta, Mężczyzna }
+    public class User
     {
         string firstName = string.Empty;
         string lastName = string.Empty;
@@ -63,9 +63,9 @@ namespace BetApplication
             {
                 if (!Regex.IsMatch(value, @"\d{26}"))
                 {
-                    throw new ArgumentException("");
+                    throw new ArgumentException("Number IBN musi zawierać 26 cyfr.");
                 }
-                pesel = creditCard;
+                creditCard = value;
             }
         }
         public string Login { get => login; set => login = value; }
@@ -84,6 +84,11 @@ namespace BetApplication
 
         public decimal Balance { get => balance; set => balance = value; }
 
+        public User()
+        {
+            currentCoupons = new();
+            previousCoupons = new();
+        }
         public User(string firstName, string lastName, string pesel, string email,
             string birthDate, EnumGender gender, string creditCard, string login, string password)
         {

@@ -12,15 +12,14 @@ namespace BetApplication
         Option Lose;
         Option Draw;
 
-        wdlBet() : base()
+        public wdlBet() : base()
         {
             Draw = new Option("Draw");
         }
-        wdlBet(string o1, string o2) : base()
+        public wdlBet(string o1, string o2) : base()
         {
             Win = new Option(o1);
             Lose = new Option(o2);
-
         }
 
         public override void AdjustStake()
