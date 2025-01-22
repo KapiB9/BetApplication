@@ -27,11 +27,6 @@ namespace BetApplication
         };
         wdlBet xd = new wdlBet("pop", "ggg");
 
-        private List<User> users = new List<User>
-        {
-            new User("Jan", "Kowalski", "12345678901", "11112222333344445555666677", "jk", "Jk1"),
-            new User("Adam", "Nowak", "09876543211", "22223333444455556666777788", "an", "An1")
-        };
 
 
         public BettingWindow()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +20,10 @@ namespace BetApplication
     /// <summary>
     /// Logika interakcji dla klasy SigningUp.xaml
     /// </summary>
+    
     public partial class SigningUp : Window
     {
+        AuthenticationSystem a = new();
         public SigningUp()
         {
             InitializeComponent();
@@ -43,11 +46,7 @@ namespace BetApplication
 
             try
             {
-
-
-
-                // Tworzenie użytkownika
-                User u1 = new User(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Login.Text, Password.Text);
+                a.SignUp(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Login.Text, Password.Text);
 
                 // Otwieranie nowego okna
                 BettingWindow bettingWindow = new BettingWindow();
