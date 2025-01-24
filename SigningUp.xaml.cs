@@ -30,38 +30,38 @@ namespace BetApplication
         }
         public void SigningUp_Click(object sender, RoutedEventArgs e)
         {
-            // Walidacja danych
-            if (string.IsNullOrWhiteSpace(Firstname.Text) ||
-                string.IsNullOrWhiteSpace(Surname.Text) ||
-                string.IsNullOrWhiteSpace(Pesel.Text) ||
-                string.IsNullOrWhiteSpace(CreditCard.Text) ||
-                string.IsNullOrWhiteSpace(Login.Text) ||
-                string.IsNullOrWhiteSpace(Password.Text))
-            {
-                MessageBox.Show("Wszystkie pola muszą być wypełnione!", "Błąd");
-                return;
-            }
+            //    if (string.IsNullOrWhiteSpace(Firstname.Text) ||
+            //        string.IsNullOrWhiteSpace(Surname.Text) ||
+            //        string.IsNullOrWhiteSpace(Pesel.Text) ||
+            //        string.IsNullOrWhiteSpace(CreditCard.Text) ||
+            //        string.IsNullOrWhiteSpace(Login.Text) ||
+            //        string.IsNullOrWhiteSpace(Password.Text))
+            //    {
+            //        MessageBox.Show("Wszystkie pola muszą być wypełnione!", "Błąd");
+            //        return;
+            //    }
 
+            //    try
+            //    {
+            //        // Dodaj debugowanie
+            //        Console.WriteLine($"Rejestracja: {Firstname.Text}, {Surname.Text}, {Pesel.Text}, {CreditCard.Text}, {Login.Text}");
+            //        a.SignUp(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Login.Text, Password.Text);
 
-
-            try
-            {
-                a.SignUp(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Login.Text, Password.Text);
-
-                // Otwieranie nowego okna
-                BettingWindow bettingWindow = new BettingWindow();
-                bettingWindow.Show();
-
-                // Zamknięcie aktualnego okna
-                this.Close();
-            }
-            catch 
-            {
-                MessageBox.Show("Wszystkie pola muszą być wypełnione!", "Błąd");
-                return;
-            }
-            
+            //        BettingWindow bettingWindow = new BettingWindow();
+            //        bettingWindow.Show();
+            //        this.Close();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show($"Błąd: {ex.Message}", "Błąd");
+            //    }
+            a.test();
+            BettingWindow bettingWindow = new BettingWindow();
+            bettingWindow.Show();
+            this.Close();
         }
+        
+
 
     }
 }

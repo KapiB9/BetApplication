@@ -13,10 +13,10 @@
         <Image Margin="56,120,794,363" OpacityMask="#FF88C77A" Source="/profil_icon.png"/>
 
         <!-- Zwiększono czcionkę w Label -->
-        <Label Content="Label" Margin="298,138,247,381" FontSize="48"/>
+        <Label x:Name="Login" Margin="298,138,247,381" FontSize="48"/>
 
         <!-- Zwiększono TextBox oraz jego rozmieszczenie -->
-        <TextBox TextWrapping="Wrap" Margin="47,432,815,85" FontSize="24" RenderTransformOrigin="0.371,0.317"/>
+        <TextBox x:Name="Balance" TextWrapping="Wrap" Margin="47,432,815,85" FontSize="24" RenderTransformOrigin="0.371,0.317"/>
 
         <!-- Zwiększono czcionkę TextBlocka i dostosowano jego rozmieszczenie -->
         <TextBlock TextWrapping="Wrap" Text="Stan konta:" Margin="47,373,815,192" FontSize="24" Foreground="#FFFBF6F6" FontWeight="Bold"/>
