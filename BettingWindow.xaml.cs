@@ -25,9 +25,6 @@ namespace BetApplication
         new wlBet("Player A", "Player B")
 
         };
-        wdlBet xd = new wdlBet("pop", "ggg");
-
-
 
         public BettingWindow()
         {
