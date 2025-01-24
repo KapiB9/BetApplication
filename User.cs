@@ -47,6 +47,12 @@ namespace BetApplication
                 creditCard = value;
             }
         }
+
+        public string BalanceString (decimal balance)
+        {
+            return balance.ToString();
+        }
+
         public string Login { get => login; set => login = value; }
         public string Password
         {
@@ -67,8 +73,11 @@ namespace BetApplication
         {
             currentCoupons = new();
             previousCoupons = new();
+            Balance = 0;
         }
-        public User(string firstName, string lastName, string pesel, string creditCard, string login, string password)
+
+
+        public User(string firstName, string lastName, string pesel, string creditCard, string login, string password) : base()
         {
             FirstName = firstName;
             LastName = lastName;
@@ -76,11 +85,9 @@ namespace BetApplication
             CreditCard = creditCard;
             Login = login;
             Password = password;
-            Balance = 0;
-            currentCoupons = new();
-            previousCoupons = new();
-
         }
+
+  
         public void BalanceAdd(decimal amount)
         {
             Balance += amount;

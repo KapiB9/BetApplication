@@ -19,9 +19,11 @@ namespace BetApplication
     /// </summary>
     public partial class ProfilWindow : Window
     {
-        public ProfilWindow()
+        public ProfilWindow(User u)
         {
             InitializeComponent();
+            Login.Content = u.Login;
+            Balance.Text = u.BalanceString(u.Balance);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

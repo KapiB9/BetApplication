@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,14 @@ namespace BetApplication
     public class AuthenticationSystem
     {
         private string xmlfile = "users.xml";
-        private List<User> users =   new List<User>      {
+        public List<User> users =   new List<User>      {
             new User("Jan", "Kowalski", "12345678901", "11112222333344445555666677", "jk", "Jk1"),
             new User("Adam", "Nowak", "09876543211", "22223333444455556666777788", "an", "An1")
         };
+            public void test()
+        {
+            SignUp("John", "D", "12343212341", "11112222333344445555666678", "asd", "As1");
+        }
         public AuthenticationSystem()
         {
             LoadUsers();
