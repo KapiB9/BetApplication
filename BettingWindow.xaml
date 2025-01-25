@@ -24,5 +24,7 @@ Height="48" Click="Profil_Click">
         <Button Content="Wyjdź" Margin="23,370,712,35" Grid.Column="1" FontSize="22" Background="#FFCF3737" FontWeight="Bold" Click="Quit_Click"/>
         <TextBox Name="Sum" TextWrapping="Wrap" Margin="620,272,132,121" FontSize="22" RenderTransformOrigin="0.514,0.564"/>
         <TextBlock TextWrapping="Wrap" Text="Wygrana obliczana jest: 0,88*twoja _stawka*kurs" Margin="118,272,524,121" FontSize="20" Foreground="#FFFBF9F9"/>
+        <Label Content="Stawka:" HorizontalAlignment="Left" Height="28" Margin="440,225,0,0" VerticalAlignment="Top" Width="197" Foreground="White"/>
+        <Label Name="Stake" HorizontalAlignment="Left" Height="28" Margin="508,225,0,0" VerticalAlignment="Top" Width="152" Foreground="White"/>
     </Grid>
 </Window>

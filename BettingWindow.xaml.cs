@@ -36,7 +36,7 @@ namespace BetApplication
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Wypełnienie listy zakładów w ComboBox
-            ActiveBets.ItemsSource = activeBets.Select(b => b.GetType().Name).ToList();
+            ActiveBets.ItemsSource = activeBets.Select(b => b.ToString()).ToList();
         }
         private void ActiveBets_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -49,11 +49,13 @@ namespace BetApplication
                 // Wypełnij opcje w BetChoice w zależności od zakładu
                 if (selectedBet is wdlBet wdl)
                 {
-                    BetChoice.ItemsSource = new List<string> { ".Win", "wdl.Lose1", "Draw" };
+                    wdlBet b = (wdlBet)selectedBet;
+                    BetChoice.ItemsSource = new List<string> { b.Win.Name, b.Lose.Name, "Draw" };
                 }
                 else if (selectedBet is wlBet wl)
                 {
-                    BetChoice.ItemsSource = new List<string> { "Win", "Lose" };
+                    wlBet b = (wlBet)selectedBet;
+                    BetChoice.ItemsSource = new List<string> { b.Win.Name, b.Lose.Name };
                 }
             }
         }
@@ -72,11 +74,8 @@ namespace BetApplication
                 if (decimal.TryParse(cashPlaced.Text, out decimal bettedAmount))
                 {
                     // Przykładowy użytkownik
-                    User currentUser = new User("John", "Doe", "1234567890", "1234567812345678", "johndoe", "password");
-                    currentUser.BalanceAdd(1000); // Dodanie środków na potrzeby testów
-
                     // Dodaj zakład
-                    selectedBet.AddCoupon(currentUser, bettedAmount, selectedOption);
+                    selectedBet.AddCoupon(user, bettedAmount, selectedOption);
 
                     MessageBox.Show($"Postawiłeś zakład: {selectedOption}, Kwota: {bettedAmount}!");
                 }
