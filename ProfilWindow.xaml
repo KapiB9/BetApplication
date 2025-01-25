@@ -15,7 +15,6 @@
         <!-- Zwiększono czcionkę w Label -->
         <Label x:Name="Login" Margin="298,138,247,381" FontSize="48"/>
 
-        <!-- Zwiększono TextBox oraz jego rozmieszczenie -->
         <TextBox x:Name="Balance" TextWrapping="Wrap" Margin="47,432,815,85" FontSize="24" RenderTransformOrigin="0.371,0.317"/>
 
         <!-- Zwiększono czcionkę TextBlocka i dostosowano jego rozmieszczenie -->

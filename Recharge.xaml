@@ -9,7 +9,7 @@
     <Grid>
         <TextBox x:Name="Money" HorizontalAlignment="Left" Height="44" Margin="35,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" FontSize="16"/>
         <TextBlock TextWrapping="Wrap" Text="Wpisz kwote:" Margin="35,18,264,125" FontSize="16"/>
-        <Button x:Name="Add" Content="Dodaj" Margin="158,55,158,65" FontSize="16" Background="#FFACE670"/>
+        <Button x:Name="Add" Content="Dodaj" Margin="158,55,158,65" FontSize="16" Background="#FFACE670" Click="AddBalance_Click"/>
 
     </Grid>
 </Window>

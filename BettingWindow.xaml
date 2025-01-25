@@ -10,8 +10,8 @@
     <Grid Margin="0,0,0,-16" Background="#FF514C4C">
         <Label Content="SigmaBet" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="880" Background="#FF1CDCDB" Foreground="#FFF8F7F7" FontSize="36" FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
         <Button Name="Profil" Margin="753,0,28,398" 
-VerticalAlignment="Bottom" Background="{x:Null}" 
-Height="48" Click="Profil_Click">
+        VerticalAlignment="Bottom" Background="{x:Null}" 
+        Height="48" Click="Profil_Click">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="99">
                 <Image Source="/profil.png" Width="42" Height="30"/>
                 <TextBlock Text="Profil" Foreground="#FFFBF6F6" FontSize="18" VerticalAlignment="Center" Height="24" Width="51" FontWeight="Bold"/>

@@ -31,9 +31,15 @@ namespace BetApplication
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Recharge RW = new Recharge();
+            Recharge RW = new Recharge(user);
+            RW.BalanceUpdated += () =>
+            {
+                // Odśwież balans na widoku po zamknięciu okna Recharge
+                Balance.Text = user.Balance.ToString();
+            };
             RW.Show();
-;
+            
+            
         }
         private void Comeback_Click(object sender, RoutedEventArgs e)
         {
@@ -42,5 +48,6 @@ namespace BetApplication
             BetW.Show();  
             this.Close();
         }
+        
     }
 }

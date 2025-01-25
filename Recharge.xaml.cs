@@ -19,9 +19,29 @@ namespace BetApplication
     /// </summary>
     public partial class Recharge : Window
     {
-        public Recharge()
+        private User user;
+        public event Action BalanceUpdated;
+
+        public Recharge(User u)
         {
             InitializeComponent();
+            user = u;
+        }
+
+        private void AddBalance_Click(object sender, RoutedEventArgs e)
+        {
+            if (decimal.TryParse(Money.Text, out decimal amount) && amount > 0)
+            {
+                user.BalanceAdd(amount); // Dodaj środki do balansu użytkownika
+                MessageBox.Show($"Dodano {amount:C} do Twojego konta.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                BalanceUpdated?.Invoke(); // Wywołaj zdarzenie, aby poinformować o zmianie balansu
+                this.Close(); // Zamknij okno doładowania
+            }
+            else
+            {
+                MessageBox.Show("Podaj poprawną kwotę.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
