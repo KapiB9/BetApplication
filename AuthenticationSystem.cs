@@ -21,14 +21,14 @@ namespace BetApplication
 
         public AuthenticationSystem()
         {
-            LoadUsers();
+            users = LoadUsers(xmlfile);
             users[0].BalanceAdd(100);
         }
         public User SignUp(string firstName, string lastName, string pesel, string creditCard, string login, string password)
         {
             User user = new(firstName, lastName, pesel, creditCard, login, password);
             users.Add(user);
-            //SaveUsers();
+            SaveUsers(xmlfile);
             return user;
         }
 
@@ -42,19 +42,36 @@ namespace BetApplication
             return user;
         }
 
-        private void SaveUsers()
+        private void SaveUsers(string fileName)
         {
-            XmlSerializer xs = new(typeof(List<User>));
-            using FileStream fileStream = new(xmlfile, FileMode.Create);
-            xs.Serialize(fileStream, users);
-        }
-        private void LoadUsers()
-        {
-            if (File.Exists(xmlfile))
+            try
             {
+                using StreamWriter sw = new(fileName);
                 XmlSerializer xs = new(typeof(List<User>));
-                using FileStream fileStream = new(xmlfile, FileMode.Open);
-                users = (List<User>)xs.Deserialize(fileStream) ?? new List<User>();
+                xs.Serialize(sw, users);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Błąd podczas zapisywania pliku XML: {ex.Message}");
+            }
+        }
+
+        private static List<User> LoadUsers(string fileName)
+        {
+            try
+            {
+                if (!File.Exists(fileName))
+                {
+                    return new List<User>();
+                }
+                using StreamReader sr = new(fileName);
+                XmlSerializer xs = new(typeof(List<User>));
+                return (List<User>)xs.Deserialize(sr);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Błąd podczas wczytywania pliku XML: {ex.Message}");
+                return new List<User>();
             }
         }
     }
