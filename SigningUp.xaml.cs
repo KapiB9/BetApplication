@@ -23,42 +23,36 @@ namespace BetApplication
     
     public partial class SigningUp : Window
     {
-        AuthenticationSystem a = new();
-        public SigningUp()
+        AuthenticationSystem a;
+        public SigningUp(AuthenticationSystem a)
         {
+            this.a = a;
             InitializeComponent();
         }
         public void SigningUp_Click(object sender, RoutedEventArgs e)
         {
-            //    if (string.IsNullOrWhiteSpace(Firstname.Text) ||
-            //        string.IsNullOrWhiteSpace(Surname.Text) ||
-            //        string.IsNullOrWhiteSpace(Pesel.Text) ||
-            //        string.IsNullOrWhiteSpace(CreditCard.Text) ||
-            //        string.IsNullOrWhiteSpace(Login.Text) ||
-            //        string.IsNullOrWhiteSpace(Password.Text))
-            //    {
-            //        MessageBox.Show("Wszystkie pola muszą być wypełnione!", "Błąd");
-            //        return;
-            //    }
+            if (string.IsNullOrWhiteSpace(Firstname.Text) ||
+                string.IsNullOrWhiteSpace(Surname.Text) ||
+                string.IsNullOrWhiteSpace(Pesel.Text) ||
+                string.IsNullOrWhiteSpace(CreditCard.Text) ||
+                string.IsNullOrWhiteSpace(Login.Text) ||
+                string.IsNullOrWhiteSpace(Password.Text))
+            {
+                MessageBox.Show("Wszystkie pola muszą być wypełnione!", "Błąd");
+                return;
+            }
 
-            //    try
-            //    {
-            //        // Dodaj debugowanie
-            //        Console.WriteLine($"Rejestracja: {Firstname.Text}, {Surname.Text}, {Pesel.Text}, {CreditCard.Text}, {Login.Text}");
-            //        a.SignUp(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Login.Text, Password.Text);
+            try
+            {
+                BettingWindow bettingWindow = new BettingWindow(a.SignUp(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Login.Text, Password.Text));
+                bettingWindow.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd: {ex.Message}", "Błąd");
+            }
 
-            //        BettingWindow bettingWindow = new BettingWindow();
-            //        bettingWindow.Show();
-            //        this.Close();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show($"Błąd: {ex.Message}", "Błąd");
-            //    }
-            a.test();
-            BettingWindow bettingWindow = new BettingWindow();
-            bettingWindow.Show();
-            this.Close();
         }
         
 

@@ -29,7 +29,7 @@
         </Button>
 
         <!-- Zwiększono ListBox i dostosowano margines -->
-        <ListBox Margin="298,357,302,43"/>
+        <ListBox x:Name="CouponList" Margin="298,357,302,43"/>
 
         <!-- Zwiększono czcionkę w TextBlock "Lista zakładów:" oraz dopasowano margines -->
         <TextBlock TextWrapping="Wrap" Text="Lista zakładów:" Margin="300,305,500,243" Foreground="#FFFCF9F9" FontWeight="Bold" FontSize="24" RenderTransformOrigin="0.431,0.543"/>

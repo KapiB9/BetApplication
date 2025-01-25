@@ -16,8 +16,8 @@ namespace BetApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        private User currentUser; // Aktualnie zalogowany użytkownik
+        AuthenticationSystem a = new AuthenticationSystem();
+        
 
         public MainWindow()
         {
@@ -33,11 +33,10 @@ namespace BetApplication
             try
             {
                 // Użyj systemu autoryzacji
-                AuthenticationSystem authSystem = new AuthenticationSystem();
-                User user = authSystem.LogIn(login, password);
+                User user = a.LogIn(login, password);
 
                 // Otwórz BettingWindow
-                BettingWindow bettingWindow = new BettingWindow();
+                BettingWindow bettingWindow = new BettingWindow(user);
                 bettingWindow.Show();
 
                 // Zamknij LoginWindow
@@ -51,7 +50,7 @@ namespace BetApplication
         void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             // Otwórz okno rejestracji
-            SigningUp signingUpWindow = new SigningUp();
+            SigningUp signingUpWindow = new SigningUp(a);
             signingUpWindow.Show();  // Wyświetl okno rejestracji
 
             // Zamknij obecne okno (MainWindow)
