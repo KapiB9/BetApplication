@@ -54,7 +54,16 @@ namespace BetApplication
             }
 
         }
-        
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            // Otwórz okno rejestracji
+            MainWindow mainW = new MainWindow();
+            mainW.Show();  // Wyświetl okno rejestracji
+
+            // Zamknij obecne okno (MainWindow)
+            this.Close();
+        }
+
 
 
     }
