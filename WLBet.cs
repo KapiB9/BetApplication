@@ -38,6 +38,9 @@ namespace BetApplication
             }
 
         }
+
+        
+
         public override string ToString()
         {
             return $"{Win.Name} vs {Lose.Name}";

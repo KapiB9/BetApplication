@@ -21,7 +21,6 @@ namespace BetApplication
     {
         public User user;
         public AuthenticationSystem a;
-
         private List<Bet> activeBets = new List<Bet>
         {
         new wdlBet("Team A", "Team B"),
@@ -51,13 +50,14 @@ namespace BetApplication
                 if (selectedBet is wdlBet wdl)
                 {
                     wdlBet b = (wdlBet)selectedBet;
-                    BetChoice.ItemsSource = new List<string> { b.Win.Name, b.Lose.Name, "Draw" };
+                    BetChoice.ItemsSource = new List<Option> { b.Win, b.Lose, b.Draw };
                     Stake.Content = b.ShowStakes();
+
                 }
                 else if (selectedBet is wlBet wl)
                 {
                     wlBet b = (wlBet)selectedBet;
-                    BetChoice.ItemsSource = new List<string> { b.Win.Name, b.Lose.Name };
+                    BetChoice.ItemsSource = new List<Option> { b.Win, b.Lose };
                     Stake.Content = b.ShowStakes();
                 }
             }
@@ -66,21 +66,19 @@ namespace BetApplication
         {
             // Pobierz wybrany zakład i opcję
             int selectedBetIndex = ActiveBets.SelectedIndex;
-            string selectedOption = BetChoice.SelectedItem as string;
+            Option selectedOption = BetChoice.SelectedItem as Option;
 
-            if (selectedBetIndex >= 0 && !string.IsNullOrEmpty(selectedOption))
+            if (selectedBetIndex >= 0 && selectedOption != null)
             {
-                // Pobierz wybrany zakład
                 Bet selectedBet = activeBets[selectedBetIndex];
 
-                // Pobierz kwotę zakładu
                 if (decimal.TryParse(cashPlaced.Text, out decimal bettedAmount))
                 {
-                    // Przykładowy użytkownik
                     // Dodaj zakład
                     selectedBet.AddCoupon(user, bettedAmount, selectedOption);
+                    selectedBet.AdjustStake();
 
-                    MessageBox.Show($"Postawiłeś zakład: {selectedOption}, Kwota: {bettedAmount}!");
+                    MessageBox.Show($"Postawiłeś zakład: {selectedOption.Name}, Kwota: {bettedAmount}, Potencjalna wygrana: {selectedOption.Stake}!");
                 }
                 else
                 {
@@ -92,6 +90,7 @@ namespace BetApplication
                 MessageBox.Show("Wybierz zakład i opcję!");
             }
         }
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Obsługa zdarzenia, np. weryfikacja wprowadzonych danych

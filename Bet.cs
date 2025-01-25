@@ -16,12 +16,12 @@ namespace BetApplication
 
 
 
-        public void AddCoupon(User u, decimal bettedMoney, string bettedOn)
+        public  virtual void AddCoupon(User u, decimal bettedMoney, Option option)
         {
             // dodać sprawdzenie czy bettedOn jest na liście pot. zwycięzców
             if (u.Balance >= bettedMoney && bettedMoney > 0)
             {
-                Coupon c = new Coupon(u, bettedMoney, bettedOn, 2);
+                Coupon c = new Coupon(u, bettedMoney, option);
                 u.BalanceSubstract(bettedMoney);
                 u.AddCurrentCoupon(c);
             }
@@ -36,9 +36,9 @@ namespace BetApplication
             active = false;
             foreach (Coupon c in user.currentCoupons)
             {
-                if (c.BettedOn != winner)
+                if (c.Option.Name != winner)
                 {
-                    c.Stake = 0;
+                    c.Option.Stake = 0;
                 }
                 c.EndCoupon();
                 user.MoveCouponToPrevious(c);

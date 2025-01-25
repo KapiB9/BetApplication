@@ -19,7 +19,7 @@ namespace BetApplication
             draw = new Option("Draw");
         }
 
-        public    Option Win { get => win; set => win = value; }
+        public Option Win { get => win; set => win = value; }
         public Option Lose { get => lose; set => lose = value; }
         public Option Draw { get => draw; set => draw = value; }
 

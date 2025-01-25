@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BetApplication
 {
-    internal class Option
+    public class Option
     {
         string name;
         decimal stake;
@@ -21,6 +21,11 @@ namespace BetApplication
         {
             this.Name = name;
             Stake = 1.5m;
+        }
+
+        public override string ToString()
+        {
+            return $"{name}, {stake}";
         }
 
         public decimal BettedOn { get => bettedOn; set => bettedOn = value; }

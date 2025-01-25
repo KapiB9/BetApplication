@@ -12,31 +12,24 @@ namespace BetApplication
     {
         User user;
         decimal bettedMoney;
-        string bettedOn;
-        decimal stake;
+        Option option;
 
-        public Coupon(User user, decimal bettedMoney, string bettedOn, decimal stake) : base()
+        public Coupon(User user, decimal bettedMoney, Option option) : base()
         {
             this.user = user;
             this.bettedMoney = bettedMoney;
-            this.bettedOn = bettedOn;
-            this.Stake = stake;
+            this.option = option;
         }
 
         public decimal BettedMoney { get => bettedMoney; set => bettedMoney = value; }
-        public string BettedOn { get => bettedOn; set => bettedOn = value; }
-        public decimal Stake { get => stake; set => stake = value; }
+        
         internal User User { get => user; set => user = value; }
+        internal Option Option { get => option; set => option = value; }
 
         public void EndCoupon()
         {
-            decimal winValue = bettedMoney * Stake;
+            decimal winValue = bettedMoney * Option.Stake;
             User.BalanceAdd(winValue);
-        }
-
-        public decimal PossibleWin()
-        {
-            return bettedMoney * 0.88m * Stake;
         }
 
         // Metoda do serializacji klasy Coupon jako czêœæ wiêkszej struktury danych
