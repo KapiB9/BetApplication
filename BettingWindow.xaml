@@ -22,7 +22,7 @@
         <TextBox Name="cashPlaced" VerticalAlignment="Top" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="486,270,0,0" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged" Width="116" Height="58"/>
         <Button Content="Obstaw" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,88,93" FontSize="22" Background="#FF96D556" FontWeight="Bold" Click="PlaceBet_Click" Width="170" Height="61"/>
         <Button Content="Wyjdź" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="41,0,0,93" FontSize="22" Background="#FFCF3737" FontWeight="Bold" Click="Quit_Click" Height="61" Width="170"/>
-        <TextBox Name="Sum" VerticalAlignment="Top" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="650,270,0,0" FontSize="22" RenderTransformOrigin="0.514,0.564" Width="116" Height="58"/>
+        <TextBox Name="Sum" IsReadOnly="True" VerticalAlignment="Top" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="650,270,0,0" FontSize="22" RenderTransformOrigin="0.514,0.564" Width="116" Height="58"/>
         <TextBlock TextWrapping="Wrap" Text="Wygrana obliczana jest: 0,88*twoja _stawka*kurs" Margin="162,270,504,193" FontSize="20" Foreground="#FFFBF9F9"/>
         <Label Content="Stawki:" HorizontalAlignment="Left" Height="28" Margin="365,225,0,0" VerticalAlignment="Top" Width="55" Foreground="White"/>
         <Label Name="Stake" HorizontalAlignment="Left" Height="28" Margin="438,225,0,0" VerticalAlignment="Top" Width="328" Foreground="White"/>

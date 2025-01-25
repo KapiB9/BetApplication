@@ -35,93 +35,97 @@ namespace BetApplication
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Wypełnienie listy zakładów w ComboBox
             ActiveBets.ItemsSource = activeBets.Select(b => b.ToString()).ToList();
         }
         private void ActiveBets_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Pobierz wybrany zakład
+            Sum.Text = "0.00";
             int selectedIndex = ActiveBets.SelectedIndex;
+
             if (selectedIndex >= 0 && selectedIndex < activeBets.Count)
             {
                 var selectedBet = activeBets[selectedIndex];
 
-                // Wypełnij opcje w BetChoice w zależności od zakładu
                 if (selectedBet is wdlBet wdl)
                 {
-                    wdlBet b = (wdlBet)selectedBet;
-                    BetChoice.ItemsSource = new List<Option> { b.Win, b.Lose, b.Draw };
-                    Stake.Content = b.ShowStakes();
-
+                    BetChoice.ItemsSource = new List<Option> { wdl.Win, wdl.Lose, wdl.Draw };
+                    Stake.Content = wdl.ShowStakes();
                 }
                 else if (selectedBet is wlBet wl)
                 {
-                    wlBet b = (wlBet)selectedBet;
-                    BetChoice.ItemsSource = new List<Option> { b.Win, b.Lose };
-                    Stake.Content = b.ShowStakes();
+                    BetChoice.ItemsSource = new List<Option> { wl.Win, wl.Lose };
+                    Stake.Content = wl.ShowStakes();
                 }
             }
         }
+
         private void PlaceBet_Click(object sender, RoutedEventArgs e)
         {
-            // Pobierz wybrany zakład i opcję
             int selectedBetIndex = ActiveBets.SelectedIndex;
             Option selectedOption = BetChoice.SelectedItem as Option;
 
-            if (selectedBetIndex >= 0 && selectedOption != null)
+            if (selectedBetIndex >= 0 && selectedOption != null && decimal.TryParse(Sum.Text, out decimal potentialWin) && potentialWin > 0)
             {
-                Bet selectedBet = activeBets[selectedBetIndex];
-
-                if (decimal.TryParse(cashPlaced.Text, out decimal bettedAmount))
+                if (decimal.TryParse(cashPlaced.Text, out decimal bettedAmount) && bettedAmount > 0)
                 {
-                    // Dodaj zakład
-                    selectedBet.AddCoupon(user, bettedAmount, selectedOption);
-                    selectedBet.AdjustStake();
+                    // Sprawdzenie, czy użytkownik ma wystarczające środki na koncie
+                    if (user.Balance >= bettedAmount)
+                    {
+                        Bet selectedBet = activeBets[selectedBetIndex];
+                        selectedBet.AddCoupon(user, bettedAmount, selectedOption);
+                        selectedBet.AdjustStake();
 
-                    MessageBox.Show($"Postawiłeś zakład: {selectedOption.Name}, Kwota: {bettedAmount}, Potencjalna wygrana: {selectedOption.Stake}!");
+                        MessageBox.Show($"Postawiłeś zakład: {selectedOption.Name}, Kwota: {bettedAmount} zł, Potencjalna wygrana: {potentialWin:0.00} zł!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nie masz wystarczających środków na koncie, aby postawić zakład!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Nieprawidłowa kwota zakładu!");
+                    MessageBox.Show("Nieprawidłowa kwota zakładu! Wprowadź wartość większą niż 0.");
                 }
             }
             else
             {
-                MessageBox.Show("Wybierz zakład i opcję!");
+                MessageBox.Show("Wybierz zakład i opcję przed obstawieniem!");
             }
         }
+
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Obsługa zdarzenia, np. weryfikacja wprowadzonych danych
-            TextBox textBox = sender as TextBox;
-            if (textBox != null)
+            if (decimal.TryParse(cashPlaced.Text, out decimal bettedAmount) && bettedAmount > 0)
             {
-                string input = textBox.Text;
+                Option selectedOption = BetChoice.SelectedItem as Option;
 
-                // Opcjonalnie: sprawdzanie poprawności wprowadzanych danych
-                if (!decimal.TryParse(input, out decimal result))
+                if (selectedOption != null)
                 {
-                    MessageBox.Show("Wprowadź poprawną kwotę zakładu!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    decimal potentialWin = bettedAmount * 0.88m * selectedOption.Stake;
+                    Sum.Text = potentialWin.ToString("0.00");
+                }
+                else
+                {
+                    Sum.Text = "0.00";
                 }
             }
+            else
+            {
+                Sum.Text = "0.00";
+            }
         }
+
         private void Quit_Click(object sender, RoutedEventArgs e)
         {
-            // Otwórz okno rejestracji
             MainWindow mainW = new MainWindow();
-            mainW.Show();  // Wyświetl okno rejestracji
-
-            // Zamknij obecne okno (MainWindow)
+            mainW.Show(); 
             this.Close();
         }
         private void Profil_Click(object sender, RoutedEventArgs e)
         {
-            // Otwórz okno rejestracji
             ProfilWindow ProfilW = new ProfilWindow(user);
-            ProfilW.Show();  // Wyświetl okno rejestracji
-
-            // Zamknij obecne okno (MainWindow)
+            ProfilW.Show();  
             this.Close();
         }
 

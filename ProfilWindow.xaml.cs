@@ -34,7 +34,6 @@ namespace BetApplication
             Recharge RW = new Recharge(user);
             RW.BalanceUpdated += () =>
             {
-                // Odśwież balans na widoku po zamknięciu okna Recharge
                 Balance.Text = user.Balance.ToString();
             };
             RW.Show();
