@@ -19,11 +19,14 @@ namespace BetApplication
     /// </summary>
     public partial class ProfilWindow : Window
     {
+        User user;
         public ProfilWindow(User u)
         {
+            user = u;
             InitializeComponent();
             Login.Content = u.Login;
             Balance.Text = u.BalanceString(u.Balance);
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -35,7 +38,7 @@ namespace BetApplication
         private void Comeback_Click(object sender, RoutedEventArgs e)
         {
 
-            BettingWindow BetW = new BettingWindow();
+            BettingWindow BetW = new BettingWindow(user);
             BetW.Show();  
             this.Close();
         }

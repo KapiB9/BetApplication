@@ -19,7 +19,8 @@ namespace BetApplication
     /// </summary>
     public partial class BettingWindow : Window
     {
-        User u = new User("Adam", "Nowak", "09876543211", "22223333444455556666777788", "an", "An1");
+        public User user;
+
         private List<Bet> activeBets = new List<Bet>
         {
         new wdlBet("Team A", "Team B"),
@@ -27,8 +28,9 @@ namespace BetApplication
 
         };
 
-        public BettingWindow()
+        public BettingWindow(User u)
         {
+            user = u;
             InitializeComponent();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -115,7 +117,7 @@ namespace BetApplication
         private void Profil_Click(object sender, RoutedEventArgs e)
         {
             // Otwórz okno rejestracji
-            ProfilWindow ProfilW = new ProfilWindow(u);
+            ProfilWindow ProfilW = new ProfilWindow(user);
             ProfilW.Show();  // Wyświetl okno rejestracji
 
             // Zamknij obecne okno (MainWindow)
