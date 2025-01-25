@@ -22,7 +22,7 @@ namespace BetApplication
         public AuthenticationSystem()
         {
             users = LoadUsers(xmlfile);
-            users[0].BalanceAdd(100);
+            users[0].BalanceAdd(10);
         }
         public User SignUp(string firstName, string lastName, string pesel, string creditCard, string login, string password)
         {
