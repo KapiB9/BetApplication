@@ -12,6 +12,7 @@
     <None Remove="plus.png" />
     <None Remove="profil.png" />
     <None Remove="profil_icon.png" />
+    <None Remove="profil_s.jpg" />
     <None Remove="x_quit.png" />
   </ItemGroup>
 
@@ -19,6 +20,7 @@
     <Resource Include="plus.png" />
     <Resource Include="profil.png" />
     <Resource Include="profil_icon.png" />
+    <Resource Include="profil_s.jpg" />
     <Resource Include="x_quit.png" />
   </ItemGroup>
 

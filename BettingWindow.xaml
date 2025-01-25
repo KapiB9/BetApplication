@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BetApplication"
         mc:Ignorable="d"
-        Title="BettingWindow" Height="450" Width="880"
+        Title="BettingWindow" Height="496" Width="880"
         Loaded="Window_Loaded">
-    <Grid Margin="0,0,0,-16" Background="#FF514C4C">
+    <Grid Margin="0,0,-16,-60" Background="#FF514C4C">
         <Label Content="SigmaBet" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="880" Background="#FF1CDCDB" Foreground="#FFF8F7F7" FontSize="36" FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
-        <Button Name="Profil" Margin="753,0,28,398" 
-        VerticalAlignment="Bottom" Background="{x:Null}" 
-        Height="48" Click="Profil_Click">
+        <Button Name="Profil" Margin="726,4,0,0" HorizontalAlignment="Left"
+        VerticalAlignment="Top" Background="{x:Null}" 
+        Height="48" Click="Profil_Click" Width="128">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="99">
                 <Image Source="/profil.png" Width="42" Height="30"/>
                 <TextBlock Text="Profil" Foreground="#FFFBF6F6" FontSize="18" VerticalAlignment="Center" Height="24" Width="51" FontWeight="Bold"/>
             </StackPanel>
         </Button>
-        <ComboBox Name="ActiveBets" Margin="81,150,486,248" SelectionChanged="ActiveBets_SelectionChanged"/>
-        <ComboBox Name="BetChoice" Grid.Column="1" Margin="435,150,132,248"/>
-        <TextBox Name="cashPlaced" TextWrapping="Wrap" Margin="435,272,299,121" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Obstaw" Margin="650,370,78,35" FontSize="22" Background="#FF96D556" FontWeight="Bold" Click="PlaceBet_Click"/>
-        <Button Content="Wyjdź" Margin="23,370,712,35" Grid.Column="1" FontSize="22" Background="#FFCF3737" FontWeight="Bold" Click="Quit_Click"/>
-        <TextBox Name="Sum" TextWrapping="Wrap" Margin="620,272,132,121" FontSize="22" RenderTransformOrigin="0.514,0.564"/>
-        <TextBlock TextWrapping="Wrap" Text="Wygrana obliczana jest: 0,88*twoja _stawka*kurs" Margin="118,272,524,121" FontSize="20" Foreground="#FFFBF9F9"/>
-        <Label Content="Stawki:" HorizontalAlignment="Left" Height="28" Margin="365,235,0,0" VerticalAlignment="Top" Width="55" Foreground="White"/>
-        <Label Name="Stake" HorizontalAlignment="Left" Height="28" Margin="438,235,0,0" VerticalAlignment="Top" Width="328" Foreground="White"/>
+        <ComboBox Name="ActiveBets" Margin="0,143,476,0" SelectionChanged="ActiveBets_SelectionChanged" HorizontalAlignment="Right" VerticalAlignment="Top" Height="59" Width="328"/>
+        <ComboBox Name="BetChoice" Margin="438,143,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="59" Width="328"/>
+        <TextBox Name="cashPlaced" VerticalAlignment="Top" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="486,270,0,0" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged" Width="116" Height="58"/>
+        <Button Content="Obstaw" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,88,93" FontSize="22" Background="#FF96D556" FontWeight="Bold" Click="PlaceBet_Click" Width="170" Height="61"/>
+        <Button Content="Wyjdź" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="41,0,0,93" FontSize="22" Background="#FFCF3737" FontWeight="Bold" Click="Quit_Click" Height="61" Width="170"/>
+        <TextBox Name="Sum" VerticalAlignment="Top" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="650,270,0,0" FontSize="22" RenderTransformOrigin="0.514,0.564" Width="116" Height="58"/>
+        <TextBlock TextWrapping="Wrap" Text="Wygrana obliczana jest: 0,88*twoja _stawka*kurs" Margin="162,270,504,193" FontSize="20" Foreground="#FFFBF9F9"/>
+        <Label Content="Stawki:" HorizontalAlignment="Left" Height="28" Margin="365,225,0,0" VerticalAlignment="Top" Width="55" Foreground="White"/>
+        <Label Name="Stake" HorizontalAlignment="Left" Height="28" Margin="438,225,0,0" VerticalAlignment="Top" Width="328" Foreground="White"/>
     </Grid>
 </Window>

@@ -28,7 +28,7 @@ namespace BetApplication
 
         public void EndCoupon()
         {
-            decimal winValue = bettedMoney * Option.Stake;
+            decimal winValue = 0.88m * bettedMoney * Option.Stake;
             User.BalanceAdd(winValue);
         }
 
