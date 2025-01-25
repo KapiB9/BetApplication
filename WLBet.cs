@@ -36,6 +36,11 @@ namespace BetApplication
             {
                 Lose.Stake = totalBettedOn > 0 ? totalBettedOn / Lose.BettedOn : 0; // Kurs = ca³kowita suma / stawka na Lose
             }
+
+        }
+        public override string ToString()
+        {
+            return $"{win.Name} vs {lose.Name}";
         }
     }
 }

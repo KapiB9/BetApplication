@@ -8,23 +8,23 @@ namespace BetApplication
 {
     internal class wdlBet : Bet
     {
-        Option Win;
-        Option Lose;
-        Option Draw;
+        Option win;
+        Option lose;
+        Option draw;
 
         public wdlBet() : base()
         {
-            Draw1 = new Option("Draw");
+            draw = new Option("Draw");
         }
         public wdlBet(string o1, string o2) : base()
         {
-            Win1 = new Option(o1);
-            Lose1 = new Option(o2);
+            win = new Option(o1);
+            lose = new Option(o2);
         }
 
-        public    Option Win1 { get => Win; set => Win = value; }
-        public Option Lose1 { get => Lose; set => Lose = value; }
-        public Option Draw1 { get => Draw; set => Draw = value; }
+        public    Option Win { get => win; set => win = value; }
+        public Option Lose { get => lose; set => lose = value; }
+        public Option Draw { get => draw; set => draw = value; }
 
 
         
@@ -33,22 +33,27 @@ namespace BetApplication
         public override void AdjustStake()
         {
             decimal totalBettedOn = 0;
-            if (Win1 != null) totalBettedOn += Win1.BettedOn;
-            if (Lose1 != null) totalBettedOn += Lose1.BettedOn;
-            if (Draw1 != null) totalBettedOn += Draw1.BettedOn;
+            if (Win != null) totalBettedOn += Win.BettedOn;
+            if (Lose != null) totalBettedOn += Lose.BettedOn;
+            if (Draw != null) totalBettedOn += Draw.BettedOn;
 
-            if (Win1 != null)
+            if (Win != null)
             {
-                Win1.Stake = totalBettedOn > 0 ? totalBettedOn / Win1.BettedOn : 0; // Odwrotnoœæ proporcji
+                Win.Stake = totalBettedOn > 0 ? totalBettedOn / Win.BettedOn : 0; // Odwrotnoœæ proporcji
             }
-            if (Lose1 != null)
+            if (Lose != null)
             {
-                Lose1.Stake = totalBettedOn > 0 ? totalBettedOn / Lose1.BettedOn : 0;
+                Lose.Stake = totalBettedOn > 0 ? totalBettedOn / Lose.BettedOn : 0;
             }
-            if (Draw1 != null)
+            if (Draw != null)
             {
-                Draw1.Stake = totalBettedOn > 0 ? totalBettedOn / Draw1.BettedOn : 0;
+                Draw.Stake = totalBettedOn > 0 ? totalBettedOn / Draw.BettedOn : 0;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{win.Name} vs {lose.Name}";
         }
     }
 }
