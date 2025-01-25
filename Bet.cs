@@ -14,10 +14,7 @@ namespace BetApplication
 
         public Bet() { }
 
-        public Bet(string name) : base()
-        {
-            this.name = name;
-        }
+
 
         public void AddCoupon(User u, decimal bettedMoney, string bettedOn)
         {
@@ -49,6 +46,11 @@ namespace BetApplication
         }
 
         public abstract void AdjustStake();
+
+        public virtual string ShowStakes()
+        {
+            return "Stawki";
+        }
 
     }
 }

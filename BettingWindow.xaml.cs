@@ -52,11 +52,13 @@ namespace BetApplication
                 {
                     wdlBet b = (wdlBet)selectedBet;
                     BetChoice.ItemsSource = new List<string> { b.Win.Name, b.Lose.Name, "Draw" };
+                    Stake.Content = b.ShowStakes();
                 }
                 else if (selectedBet is wlBet wl)
                 {
                     wlBet b = (wlBet)selectedBet;
                     BetChoice.ItemsSource = new List<string> { b.Win.Name, b.Lose.Name };
+                    Stake.Content = b.ShowStakes();
                 }
             }
         }

@@ -17,9 +17,10 @@ namespace BetApplication
             Stake = 1.5m;
             BettedOn = 0;
         }
-        public Option(string name)
+        public Option(string name) : base()
         {
             this.Name = name;
+            Stake = 1.5m;
         }
 
         public decimal BettedOn { get => bettedOn; set => bettedOn = value; }

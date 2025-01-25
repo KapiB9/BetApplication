@@ -12,14 +12,11 @@ namespace BetApplication
         Option lose;
         Option draw;
 
-        public wdlBet() : base()
-        {
-            draw = new Option("Draw");
-        }
         public wdlBet(string o1, string o2) : base()
         {
             win = new Option(o1);
             lose = new Option(o2);
+            draw = new Option("Draw");
         }
 
         public    Option Win { get => win; set => win = value; }
@@ -54,6 +51,11 @@ namespace BetApplication
         public override string ToString()
         {
             return $"{win.Name} vs {lose.Name}";
+        }
+
+        public string ShowStakes()
+        {
+            return $"{Win.Name}: {Win.Stake} || Remis: {Draw.Stake} || {Lose.Name}: {Lose.Stake}";
         }
     }
 }
