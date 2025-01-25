@@ -60,6 +60,10 @@ namespace BetApplication
             // Zamknij obecne okno (MainWindow)
             this.Close();
         }
+        void Full_Quit(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
     }
 }

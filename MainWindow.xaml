@@ -15,5 +15,10 @@
         <TextBox Name="PasswordBox" TextWrapping="Wrap" Margin="302,213,323,201" FontSize="22"/>
         <Button Content="Zaloguj" Margin="302,274,323,139" FontSize="22" Click="LoginButton_Click" Background="#FF1CDCDB" FontWeight="Bold"/>
         <Button Content="Załóż konto" Margin="302,331,323,82" FontSize="22" Click="SignUpButton_Click" Background="#FF637FCA" FontWeight="Bold"/>
+        <Button Name="Quit" Click="Full_Quit" Margin="816,63,10,332" Background="#FFBB2424">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/x_quit.png" Width="34" Height="37"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>
