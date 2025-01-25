@@ -20,6 +20,7 @@ namespace BetApplication
     public partial class BettingWindow : Window
     {
         public User user;
+        public AuthenticationSystem a;
 
         private List<Bet> activeBets = new List<Bet>
         {
@@ -107,7 +108,7 @@ namespace BetApplication
         private void Quit_Click(object sender, RoutedEventArgs e)
         {
             // Otwórz okno rejestracji
-            MainWindow mainW = new MainWindow();
+            MainWindow mainW = new MainWindow(a);
             mainW.Show();  // Wyświetl okno rejestracji
 
             // Zamknij obecne okno (MainWindow)
@@ -122,6 +123,6 @@ namespace BetApplication
             // Zamknij obecne okno (MainWindow)
             this.Close();
         }
-        
+
     }
 }

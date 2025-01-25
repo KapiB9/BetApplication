@@ -16,14 +16,18 @@ namespace BetApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        AuthenticationSystem a = new AuthenticationSystem();
+        AuthenticationSystem a;
         
 
         public MainWindow()
         {
             InitializeComponent();
+            a = new AuthenticationSystem();
 
-
+        }
+        public MainWindow(AuthenticationSystem a) : base()
+        {
+            this.a = a;
         }
         void LoginButton_Click(object sender, RoutedEventArgs e)
         {
