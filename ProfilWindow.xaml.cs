@@ -49,6 +49,8 @@ namespace BetApplication
             try
             {
                 Coupon selectedC = CouponList.SelectedItem as Coupon;
+                selectedC.EndCoupon();
+                user.currentCoupons.Remove(selectedC);
             }
             catch (Exception ex) { }
         }
