@@ -19,13 +19,16 @@ namespace BetApplication
     /// </summary>
     public partial class ProfilWindow : Window
     {
-        User user;
+        public User user;
+        BetList b = new();
         public ProfilWindow(User u)
         {
             user = u;
+
             InitializeComponent();
             Login.Content = u.Login;
             Balance.Text = u.BalanceString(u.Balance);
+            CouponList.ItemsSource = user.currentCoupons;
             
         }
 
@@ -46,6 +49,10 @@ namespace BetApplication
             BettingWindow BetW = new BettingWindow(user);
             BetW.Show();  
             this.Close();
+        }
+        private void End(object sender, RoutedEventArgs e)
+        {
+            b.closeBets(user);
         }
         
     }

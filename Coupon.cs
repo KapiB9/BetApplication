@@ -13,12 +13,14 @@ namespace BetApplication
         User user;
         decimal bettedMoney;
         Option option;
+        decimal stakeOnBetting;
 
         public Coupon(User user, decimal bettedMoney, Option option) : base()
         {
             this.user = user;
             this.bettedMoney = bettedMoney;
             this.option = option;
+            stakeOnBetting = option.Stake;
         }
 
         public decimal BettedMoney { get => bettedMoney; set => bettedMoney = value; }
@@ -28,7 +30,7 @@ namespace BetApplication
 
         public void EndCoupon()
         {
-            decimal winValue = 0.88m * bettedMoney * Option.Stake;
+            decimal winValue = 0.88m * bettedMoney * stakeOnBetting;
             User.BalanceAdd(winValue);
         }
 
@@ -47,5 +49,10 @@ namespace BetApplication
 
         // Konstruktor bezparametrowy wymagany do serializacji
         public Coupon() { }
+
+        public override string ToString()
+        {
+            return $"Obstawiono {bettedMoney.ToString("c")} na {Option.Name}";
+        }
     }
 }

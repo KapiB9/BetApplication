@@ -27,11 +27,17 @@
         </Button>
 
         <!-- Zwiększono ListBox i dostosowano margines -->
-        <ListBox x:Name="CouponList" Margin="296,358,445,114" Width="345"/>
+        <ListBox x:Name="CouponList" Margin="296,358,445,114" Width="345">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" FontSize="20" Foreground="Black" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <!-- Zwiększono czcionkę w TextBlock "Lista zakładów:" oraz dopasowano margines -->
         <TextBlock TextWrapping="Wrap" Text="Lista zakładów:" Margin="296,316,489,316" Foreground="#FFFCF9F9" FontWeight="Bold" FontSize="24" RenderTransformOrigin="0.431,0.543" Width="300" Height="50"/>
-        <Button Content="Rozwiąż zakład" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="690,0,0,114" FontSize="22" FontWeight="Bold" Background="#FF71EA8C" Width="250" Height="75"/>
+        <Button x:Name="end" Content="Rozwiąż zakład" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="690,0,0,114" FontSize="22" FontWeight="Bold" Background="#FF71EA8C" Width="250" Height="75" Click="End"/>
         <Button Content="Wróć do betowania" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="690,0,0,219" FontSize="22" FontWeight="Bold" Background="#FF1CDCDB" Click="Comeback_Click" Width="250" Height="75"/>
     </Grid>
 </Window>

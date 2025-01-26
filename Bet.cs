@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BetApplication
 {
@@ -31,17 +32,34 @@ namespace BetApplication
             }
         }
 
+        public virtual string GetWinner()
+        {
+            Random random = new Random();
+
+            // Losowanie liczby całkowitej 0 lub 1
+            int result = random.Next(0, 2);
+            return result.ToString();
+        }
+
         public void CloseBet(User user, string winner)
         {
             active = false;
-            foreach (Coupon c in user.currentCoupons)
+            if (user.currentCoupons.Count == 0)
             {
-                if (c.Option.Name != winner)
+                MessageBox.Show("Brak zakladow do roztrzygniecia");
+            }
+            else
+            {
+                //tu wywala nieobsusługiwany wyjątek
+                foreach (Coupon c in user.currentCoupons)
                 {
-                    c.Option.Stake = 0;
+                    if (c.Option.Name != winner)
+                    {
+                        c.Option.Stake = 0;
+                    }
+                    c.EndCoupon();
+                    user.MoveCouponToPrevious(c);
                 }
-                c.EndCoupon();
-                user.MoveCouponToPrevious(c);
             }
         }
 

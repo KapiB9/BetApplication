@@ -48,6 +48,18 @@ namespace BetApplication
             }
         }
 
+        public override string GetWinner()
+        {
+            Random random = new Random();
+
+            // Losowanie liczby ca³kowitej 0 lub 1
+            int result = random.Next(0, 3);
+            if(result == 0) { return Win.Name; }
+            if (result == 1) { return Draw.Name; }
+            else { return Lose.Name; }
+
+        }
+
         public override string ToString()
         {
             return $"{win.Name} vs {lose.Name}";

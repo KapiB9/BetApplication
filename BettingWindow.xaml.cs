@@ -21,12 +21,9 @@ namespace BetApplication
     {
         public User user;
         public AuthenticationSystem a;
-        private List<Bet> activeBets = new List<Bet>
-        {
-        new wdlBet("Team A", "Team B"),
-        new wlBet("Player A", "Player B")
+        BetList b = new();
 
-        };
+
 
         public BettingWindow(User u)
         {
@@ -35,16 +32,16 @@ namespace BetApplication
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ActiveBets.ItemsSource = activeBets.Select(b => b.ToString()).ToList();
+            ActiveBets.ItemsSource = b.activeBets.Select(b => b.ToString()).ToList();
         }
         private void ActiveBets_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Sum.Text = "0.00";
             int selectedIndex = ActiveBets.SelectedIndex;
 
-            if (selectedIndex >= 0 && selectedIndex < activeBets.Count)
+            if (selectedIndex >= 0 && selectedIndex < b.activeBets.Count)
             {
-                var selectedBet = activeBets[selectedIndex];
+                var selectedBet = b.activeBets[selectedIndex];
 
                 if (selectedBet is wdlBet wdl)
                 {
@@ -71,7 +68,7 @@ namespace BetApplication
                     // Sprawdzenie, czy użytkownik ma wystarczające środki na koncie
                     if (user.Balance >= bettedAmount)
                     {
-                        Bet selectedBet = activeBets[selectedBetIndex];
+                        Bet selectedBet = b.activeBets[selectedBetIndex];
                         selectedBet.AddCoupon(user, bettedAmount, selectedOption);
                         selectedBet.AdjustStake();
 
