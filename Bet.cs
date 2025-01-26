@@ -41,7 +41,7 @@ namespace BetApplication
                     c.Option.Stake = 0;
                 }
                 c.EndCoupon();
-                user.MoveCouponToPrevious(c);
+                user.currentCoupons.Remove(c);
             }
         }
 

@@ -13,17 +13,13 @@ namespace BetApplication
     public class AuthenticationSystem
     {
         private string xmlfile = "users.xml";
-        public List<User> users =   new List<User>      {
-            new User("Jan", "Kowalski", "12345678901", "11112222333344445555666677", "jk", "Jk1"),
-            new User("Adam", "Nowak", "09876543211", "22223333444455556666777788", "an", "An1")
-        };
-
+        public List<User> users = new List<User>();
 
         public AuthenticationSystem()
         {
             users = LoadUsers(xmlfile);
-            users[0].BalanceAdd(10);
         }
+
         public User SignUp(string firstName, string lastName, string pesel, string creditCard, string login, string password)
         {
             User user = new(firstName, lastName, pesel, creditCard, login, password);
@@ -42,7 +38,7 @@ namespace BetApplication
             return user;
         }
 
-        private void SaveUsers(string fileName)
+        public void SaveUsers(string fileName)
         {
             try
             {
@@ -56,7 +52,7 @@ namespace BetApplication
             }
         }
 
-        private static List<User> LoadUsers(string fileName)
+        public static List<User> LoadUsers(string fileName)
         {
             try
             {

@@ -23,10 +23,6 @@ namespace BetApplication
         public Option Lose { get => lose; set => lose = value; }
         public Option Draw { get => draw; set => draw = value; }
 
-
-        
-
-
         public override void AdjustStake()
         {
             decimal totalBettedOn = 0;
@@ -47,12 +43,10 @@ namespace BetApplication
                 Draw.Stake = totalBettedOn > 0 ? totalBettedOn / Draw.BettedOn : 0;
             }
         }
-
         public override string ToString()
         {
             return $"{win.Name} vs {lose.Name}";
         }
-
         public string ShowStakes()
         {
             return $"{Win.Name}: {Win.Stake} || Remis: {Draw.Stake} || {Lose.Name}: {Lose.Stake}";

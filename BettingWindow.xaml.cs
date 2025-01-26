@@ -14,22 +14,19 @@ using System.Windows.Shapes;
 
 namespace BetApplication
 {
-    /// <summary>
-    /// Logika interakcji dla klasy BettingWindow.xaml
-    /// </summary>
     public partial class BettingWindow : Window
     {
         public User user;
         public AuthenticationSystem a;
         private List<Bet> activeBets = new List<Bet>
         {
-        new wdlBet("Team A", "Team B"),
-        new wlBet("Player A", "Player B")
-
+            new wdlBet("Team A", "Team B"),
+            new wlBet("Player A", "Player B")
         };
 
-        public BettingWindow(User u)
+        public BettingWindow(User u, AuthenticationSystem a)
         {
+            this.a = a;
             user = u;
             InitializeComponent();
         }
@@ -118,13 +115,14 @@ namespace BetApplication
 
         private void Quit_Click(object sender, RoutedEventArgs e)
         {
+            a.SaveUsers("users.xml");
             MainWindow mainW = new MainWindow();
             mainW.Show(); 
             this.Close();
         }
         private void Profil_Click(object sender, RoutedEventArgs e)
         {
-            ProfilWindow ProfilW = new ProfilWindow(user);
+            ProfilWindow ProfilW = new ProfilWindow(user, a);
             ProfilW.Show();  
             this.Close();
         }

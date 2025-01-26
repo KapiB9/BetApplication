@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -12,7 +13,7 @@ namespace BetApplication
     {
         User user;
         decimal bettedMoney;
-        Option option;
+        public Option option;
 
         public Coupon(User user, decimal bettedMoney, Option option) : base()
         {
@@ -47,5 +48,11 @@ namespace BetApplication
 
         // Konstruktor bezparametrowy wymagany do serializacji
         public Coupon() { }
+
+        public override string ToString()
+        {
+            return $"{option} - {bettedMoney} z³";
+        }
+
     }
 }

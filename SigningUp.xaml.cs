@@ -13,14 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-
-
 namespace BetApplication
 {
-    /// <summary>
-    /// Logika interakcji dla klasy SigningUp.xaml
-    /// </summary>
-    
     public partial class SigningUp : Window
     {
         AuthenticationSystem a;
@@ -44,7 +38,7 @@ namespace BetApplication
 
             try
             {
-                BettingWindow bettingWindow = new BettingWindow(a.SignUp(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Login.Text, Password.Text));
+                BettingWindow bettingWindow = new BettingWindow(a.SignUp(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Login.Text, Password.Text), a);
                 bettingWindow.Show();
                 this.Close();
             }
@@ -63,9 +57,6 @@ namespace BetApplication
             // Zamknij obecne okno (MainWindow)
             this.Close();
         }
-
-
-
     }
 }
 

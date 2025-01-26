@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BetApplication
 {
@@ -22,6 +23,7 @@ namespace BetApplication
 
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
+        [XmlAttribute]
         public string Pesel
         {
             get => pesel;
@@ -76,7 +78,6 @@ namespace BetApplication
             Balance = 0;
         }
 
-
         public User(string firstName, string lastName, string pesel, string creditCard, string login, string password) : base()
         {
             FirstName = firstName;
@@ -100,13 +101,6 @@ namespace BetApplication
         public void AddCurrentCoupon(Coupon coupon)
         {
             currentCoupons.Add(coupon);
-        }
-        public void MoveCouponToPrevious(Coupon coupon)
-        {
-            if (currentCoupons.Remove(coupon))
-            {
-                previousCoupons.Add(coupon);
-            }
         }
 
         public override string ToString()
