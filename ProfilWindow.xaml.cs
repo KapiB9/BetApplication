@@ -49,11 +49,26 @@ namespace BetApplication
             try
             {
                 Coupon selectedC = CouponList.SelectedItem as Coupon;
+
+                if (selectedC == null)
+                {
+                    MessageBox.Show("Wybierz zakład, który chcesz rozwiązać!", "Brak wyboru", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
                 selectedC.EndCoupon();
                 user.currentCoupons.Remove(selectedC);
+
+                CouponList.ItemsSource = null;
+                CouponList.ItemsSource = user.currentCoupons; 
+
+                Balance.Text = user.Balance.ToString();
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-        
+
     }
 }

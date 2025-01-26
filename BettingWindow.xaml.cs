@@ -113,7 +113,7 @@ namespace BetApplication
             }
         }
 
-        private void Quit_Click(object sender, RoutedEventArgs e)
+        public void Quit_Click(object sender, RoutedEventArgs e)
         {
             a.SaveUsers("users.xml");
             MainWindow mainW = new MainWindow();

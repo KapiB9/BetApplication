@@ -31,14 +31,10 @@ namespace BetApplication
 
             try
             {
-                // Użyj systemu autoryzacji
                 User user = a.LogIn(login, password);
-
-                // Otwórz BettingWindow
                 BettingWindow bettingWindow = new BettingWindow(user, a);
                 bettingWindow.Show();
 
-                // Zamknij LoginWindow
                 this.Close();
             }
             catch (UnauthorizedAccessException ex)
@@ -48,11 +44,8 @@ namespace BetApplication
         }
         void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            // Otwórz okno rejestracji
             SigningUp signingUpWindow = new SigningUp(a);
-            signingUpWindow.Show();  // Wyświetl okno rejestracji
-
-            // Zamknij obecne okno (MainWindow)
+            signingUpWindow.Show();  
             this.Close();
         }
         void Full_Quit(object sender, EventArgs e)
