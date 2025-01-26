@@ -11,19 +11,14 @@ using System.Windows.Shapes;
 
 namespace BetApplication
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         AuthenticationSystem a;
         
-
         public MainWindow()
         {
             InitializeComponent();
             a = new AuthenticationSystem();
-
         }
         public MainWindow(AuthenticationSystem a) : base()
         {
@@ -40,7 +35,7 @@ namespace BetApplication
                 User user = a.LogIn(login, password);
 
                 // Otwórz BettingWindow
-                BettingWindow bettingWindow = new BettingWindow(user);
+                BettingWindow bettingWindow = new BettingWindow(user, a);
                 bettingWindow.Show();
 
                 // Zamknij LoginWindow
