@@ -25,7 +25,7 @@ namespace BetApplication
 
         public override string ToString()
         {
-            return $"{name}, {stake}";
+            return $"{name}";
         }
 
         public decimal BettedOn { get => bettedOn; set => bettedOn = value; }

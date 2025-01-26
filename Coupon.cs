@@ -14,12 +14,14 @@ namespace BetApplication
         User user;
         decimal bettedMoney;
         public Option option;
+        public decimal stakeOnBetting;
 
         public Coupon(User user, decimal bettedMoney, Option option) : base()
         {
             this.user = user;
             this.bettedMoney = bettedMoney;
             this.option = option;
+            stakeOnBetting = option.Stake;
         }
 
         public decimal BettedMoney { get => bettedMoney; set => bettedMoney = value; }
@@ -29,7 +31,7 @@ namespace BetApplication
 
         public void EndCoupon()
         {
-            decimal winValue = 0.88m * bettedMoney * Option.Stake;
+            decimal winValue = 0.88m * bettedMoney * stakeOnBetting;
             User.BalanceAdd(winValue);
         }
 
@@ -51,7 +53,7 @@ namespace BetApplication
 
         public override string ToString()
         {
-            return $"{option} - {bettedMoney} z³";
+            return $"{option} - {bettedMoney} z³, stawka: {stakeOnBetting}";
         }
 
     }
