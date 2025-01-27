@@ -33,7 +33,7 @@ namespace BetApplication
             Recharge RW = new Recharge(user);
             RW.BalanceUpdated += () =>
             {
-                Balance.Text = user.Balance.ToString();
+                Balance.Text = user.Balance.ToString("c");
             };
             RW.Show();
         }

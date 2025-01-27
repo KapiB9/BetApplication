@@ -101,6 +101,7 @@ namespace BetApplication
         public void AddCurrentCoupon(Coupon coupon)
         {
             currentCoupons.Add(coupon);
+            currentCoupons.Sort();
         }
 
         public void CloneCoupon(Coupon c)
