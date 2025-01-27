@@ -104,10 +104,6 @@ namespace BetApplication
             currentCoupons.Sort();
         }
 
-        public void CloneCoupon(Coupon c)
-        {
-            AddCurrentCoupon((Coupon)c.Clone());
-        }
 
         public override string ToString()
         {

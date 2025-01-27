@@ -70,7 +70,7 @@ namespace BetApplication
                     {
                         Bet selectedBet = activeBets[selectedBetIndex];
                         selectedBet.AddCoupon(user, bettedAmount, selectedOption);
-                        selectedBet.AdjustStake();
+                        //selectedBet.AdjustStake();
 
                         MessageBox.Show($"Postawiłeś zakład: {selectedOption.Name}, Kwota: {bettedAmount} zł, Potencjalna wygrana: {potentialWin:0.00} zł!");
                     }

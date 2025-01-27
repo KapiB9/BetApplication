@@ -31,21 +31,21 @@ namespace BetApplication
             }
         }
 
-        public void CloseBet(User user, string winner)
-        {
-            active = false;
-            foreach (Coupon c in user.currentCoupons)
-            {
-                if (c.Option.Name != winner)
-                {
-                    c.Option.Stake = 0;
-                }
-                c.EndCoupon();
-                user.currentCoupons.Remove(c);
-            }
-        }
+        //public void CloseBet(User user, string winner)
+        //{
+        //    active = false;
+        //    foreach (Coupon c in user.currentCoupons)
+        //    {
+        //        if (c.Option.Name != winner)
+        //        {
+        //            c.Option.Stake = 0;
+        //        }
+        //        c.EndCoupon();
+        //        user.currentCoupons.Remove(c);
+        //    }
+        //}
 
-        public abstract void AdjustStake();
+        //public abstract void AdjustStake();
 
         public virtual string ShowStakes()
         {
