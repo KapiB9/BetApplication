@@ -32,11 +32,11 @@ namespace BetApplication
         {
             if (decimal.TryParse(Money.Text, out decimal amount) && amount > 0)
             {
-                user.BalanceAdd(amount); // Dodaj środki do balansu użytkownika
+                user.BalanceAdd(amount); 
                 MessageBox.Show($"Dodano {amount:C} do Twojego konta.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                BalanceUpdated?.Invoke(); // Wywołaj zdarzenie, aby poinformować o zmianie balansu
-                this.Close(); // Zamknij okno doładowania
+                BalanceUpdated?.Invoke(); 
+                this.Close(); 
             }
             else
             {

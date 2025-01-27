@@ -38,7 +38,6 @@ namespace BetApplication
             User.BalanceAdd(winValue);
         }
 
-        // Metoda do serializacji klasy Coupon jako czêœæ wiêkszej struktury danych
         public void SerializeToXml(XmlSerializer serializer, Stream stream)
         {
             try

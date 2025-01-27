@@ -65,12 +65,11 @@ namespace BetApplication
             {
                 if (decimal.TryParse(cashPlaced.Text, out decimal bettedAmount) && bettedAmount > 0)
                 {
-                    // Sprawdzenie, czy użytkownik ma wystarczające środki na koncie
                     if (user.Balance >= bettedAmount)
                     {
                         Bet selectedBet = activeBets[selectedBetIndex];
                         selectedBet.AddCoupon(user, bettedAmount, selectedOption);
-                        selectedBet.AdjustStake();
+                        
 
                         MessageBox.Show($"Postawiłeś zakład: {selectedOption.Name}, Kwota: {bettedAmount} zł, Potencjalna wygrana: {potentialWin:0.00} zł!");
                     }

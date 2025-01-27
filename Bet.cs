@@ -18,7 +18,6 @@ namespace BetApplication
 
         public  virtual void AddCoupon(User u, decimal bettedMoney, Option option)
         {
-            // dodać sprawdzenie czy bettedOn jest na liście pot. zwycięzców
             if (u.Balance >= bettedMoney && bettedMoney > 0)
             {
                 Coupon c = new Coupon(u, bettedMoney, option);
@@ -44,8 +43,6 @@ namespace BetApplication
                 user.currentCoupons.Remove(c);
             }
         }
-
-        public abstract void AdjustStake();
 
         public virtual string ShowStakes()
         {

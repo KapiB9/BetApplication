@@ -9,27 +9,22 @@
     <Grid Margin="0,0,-57,-68" Background="#FF514C4C">
         <Label Content="SigmaBet" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="1000" Background="#FF1CDCDB" Foreground="#FFF8F7F7" FontSize="36" FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
 
-        <!-- Zwiększono wysokość i szerokość obrazu -->
         <Image Margin="82,147,844,390" OpacityMask="#FF88C77A" Source="/profil_s.jpg" Height="145"/>
 
-        <!-- Zwiększono czcionkę w Label -->
         <Label x:Name="Login" Margin="298,138,247,381" FontSize="48" Width="455" Height="81" Foreground="#FFF9F6F6"/>
 
         <TextBox x:Name="Balance" HorizontalAlignment="Left" VerticalAlignment="Bottom" TextWrapping="Wrap" Margin="44,0,0,151" FontSize="28" RenderTransformOrigin="0.371,0.317" Width="140" Height="75" />
 
         <TextBlock TextWrapping="Wrap" Text="Stan konta:" Margin="44,388,0,0" FontSize="24" Foreground="#FFFBF6F6" FontWeight="Bold" Width="220" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.43,0.431"/>
 
-        <!-- Zwiększono rozmiar przycisku i poprawiono jego margines -->
         <Button Name="PLUS" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click" Margin="189,435,0,0" Width="75" Height="75">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/plus.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="60"/>
             </StackPanel>
         </Button>
 
-        <!-- Zwiększono ListBox i dostosowano margines -->
         <ListBox x:Name="CouponList" Margin="296,358,445,114" Width="345"/>
 
-        <!-- Zwiększono czcionkę w TextBlock "Lista zakładów:" oraz dopasowano margines -->
         <TextBlock TextWrapping="Wrap" Text="Lista zakładów:" Margin="296,316,489,316" Foreground="#FFFCF9F9" FontWeight="Bold" FontSize="24" RenderTransformOrigin="0.431,0.543" Width="300" Height="50"/>
         <Button Content="Rozstrzygnij zakład" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="690,0,0,114" FontSize="22" FontWeight="Bold" Background="#FF71EA8C" Width="250" Height="75" Click="SettleTheBet_Click"/>
         <Button Content="Wróć do betowania" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="690,0,0,219" FontSize="22" FontWeight="Bold" Background="#FF1CDCDB" Click="Comeback_Click" Width="250" Height="75"/>
