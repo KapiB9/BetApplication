@@ -31,7 +31,10 @@ namespace BetApplication
 
         public void EndCoupon()
         {
-            decimal winValue = 0.88m * bettedMoney * stakeOnBetting;
+            Random random = new Random();
+            int result = random.Next(0, 2);
+
+            decimal winValue = 0.88m * bettedMoney * stakeOnBetting * result;
             User.BalanceAdd(winValue);
         }
 
