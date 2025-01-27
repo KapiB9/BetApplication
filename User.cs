@@ -103,6 +103,11 @@ namespace BetApplication
             currentCoupons.Add(coupon);
         }
 
+        public void CloneCoupon(Coupon c)
+        {
+            AddCurrentCoupon((Coupon)c.Clone());
+        }
+
         public override string ToString()
         {
             return $"Name: {firstName} {lastName}\nBalance: {Balance}$";

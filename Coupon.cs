@@ -9,8 +9,8 @@ using System.Xml.Serialization;
 
 namespace BetApplication
 {
-    public class Coupon
-    {
+    public class Coupon : ICloneable, IComparable<Coupon>
+   {
         User user;
         decimal bettedMoney;
         public Option option;
@@ -59,5 +59,16 @@ namespace BetApplication
             return $"{option} - {bettedMoney} z³, stawka: {stakeOnBetting}";
         }
 
+        public object Clone()
+        {
+            return new Coupon(this.user, this.bettedMoney, this.option);
+        }
+        public int CompareTo(Coupon other)
+        {
+            if (other == null) return 1;
+
+            // Porównanie na podstawie kwoty zak³adu w kolejnoœci malej¹cej
+            return other.BettedMoney.CompareTo(this.BettedMoney);
+        }
     }
 }
