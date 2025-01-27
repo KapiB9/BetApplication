@@ -20,8 +20,14 @@ namespace BetApplication
         public AuthenticationSystem a;
         private List<Bet> activeBets = new List<Bet>
         {
-            new wdlBet("Team A", "Team B"),
-            new wlBet("Player A", "Player B")
+            new wdlBet("Bayern Monachium", "Arsenal"),
+             new wlBet("Boston Celtics", "Huston Rickets"),
+             new wlBet("LA Lakers", "Charlotte Horneats"),
+             new wdlBet("FC Barcelona", "Real Madryt"),
+             new wlBet("Iga Świątek", "Magda Linette"),
+             new wlBet("New York Yankees", "Boston Red Sox"),
+             new wdlBet("LA Kings", "WPG Jets"),
+             new wdlBet("Manchester United", "Juvents")
         };
 
         public BettingWindow(User u, AuthenticationSystem a)
@@ -65,12 +71,10 @@ namespace BetApplication
             {
                 if (decimal.TryParse(cashPlaced.Text, out decimal bettedAmount) && bettedAmount > 0)
                 {
-                    // Sprawdzenie, czy użytkownik ma wystarczające środki na koncie
                     if (user.Balance >= bettedAmount)
                     {
                         Bet selectedBet = activeBets[selectedBetIndex];
                         selectedBet.AddCoupon(user, bettedAmount, selectedOption);
-                        //selectedBet.AdjustStake();
 
                         MessageBox.Show($"Postawiłeś zakład: {selectedOption.Name}, Kwota: {bettedAmount} zł, Potencjalna wygrana: {potentialWin:0.00} zł!");
                     }
@@ -126,6 +130,5 @@ namespace BetApplication
             ProfilW.Show();  
             this.Close();
         }
-
     }
 }

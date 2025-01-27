@@ -39,17 +39,17 @@ namespace BetApplication
         }
 
         // Metoda do serializacji klasy Coupon jako czêœæ wiêkszej struktury danych
-        public void SerializeToXml(XmlSerializer serializer, Stream stream)
-        {
-            try
-            {
-                serializer.Serialize(stream, this);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"B³¹d podczas serializacji kuponu: {ex.Message}");
-            }
-        }
+        //public void SerializeToXml(XmlSerializer serializer, Stream stream)
+        //{
+        //    try
+        //    {
+        //        serializer.Serialize(stream, this);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"B³¹d podczas serializacji kuponu: {ex.Message}");
+        //    }
+        //}
 
         // Konstruktor bezparametrowy wymagany do serializacji
         public Coupon() { }

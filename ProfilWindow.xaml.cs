@@ -33,7 +33,7 @@ namespace BetApplication
             Recharge RW = new Recharge(user);
             RW.BalanceUpdated += () =>
             {
-                Balance.Text = user.Balance.ToString("c");
+                Balance.Text = user.BalanceString(user.Balance);
             };
             RW.Show();
         }
@@ -62,13 +62,12 @@ namespace BetApplication
                 CouponList.ItemsSource = null;
                 CouponList.ItemsSource = user.currentCoupons; 
 
-                Balance.Text = user.Balance.ToString();
+                Balance.Text = user.BalanceString(user.Balance);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
     }
 }

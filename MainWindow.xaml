@@ -12,7 +12,7 @@
         <TextBlock TextWrapping="Wrap" Text="Login:" Margin="302,107,0,0" FontSize="22" Foreground="#FFFBF6F6" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.493,-0.318" Width="59" Height="30"/>
         <TextBox Name="LoginTextBox" Margin="302,142,0,0" FontSize="20" Height="38" Width="255" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBlock TextWrapping="Wrap" Text="Hasło:" Margin="302,180,0,0" FontSize="22" Foreground="#FFFBF6F6" Width="168" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBox Name="PasswordBox" TextWrapping="Wrap" Margin="302,213,0,0" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255" Height="38"/>
+        <PasswordBox Name="PasswordBox" Margin="302,213,0,0" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255" Height="38"/>
         <Button Content="Zaloguj" Margin="302,272,0,0" FontSize="22" Click="LoginButton_Click" Background="#FF1CDCDB" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255" Height="38"/>
         <Button Content="Załóż konto" Margin="302,333,0,0" FontSize="22" Click="SignUpButton_Click" Background="#FF637FCA" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255" Height="38"/>
         <Button Name="Quit" Click="Full_Quit" Margin="0,61,26,0" Background="#FFBB2424" VerticalAlignment="Top" HorizontalAlignment="Right" Width="48" Height="48">

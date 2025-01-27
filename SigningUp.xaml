@@ -15,7 +15,7 @@
                Background="#FF1CDCDB" Foreground="#FFF8F7F7" FontSize="36" 
                FontFamily="Arial Black" FontWeight="Bold" FontStyle="Italic"/>
         <TextBox Name ="Login" VerticalAlignment="Top" HorizontalAlignment="Center" Width="165" Height="30" TextWrapping="Wrap" Margin="0,90,0,0" FontSize="22"/>
-        <TextBox Name ="Password" VerticalAlignment="Top" HorizontalAlignment="Center" Width="165" Height="30" TextWrapping="Wrap" Margin="0,149,0,0" FontSize="22"/>
+        <PasswordBox Name ="Password" VerticalAlignment="Top" HorizontalAlignment="Center" Width="165" Height="30" Margin="0,149,0,0" FontSize="22"/>
         <TextBox Name ="Pesel" VerticalAlignment="Top" HorizontalAlignment="Center" Width="165" Height="30" TextWrapping="Wrap" Margin="0,213,0,0" FontSize="22"/>
         <TextBox Name ="Firstname" VerticalAlignment="Top" HorizontalAlignment="Center" Width="165" Height="30" TextWrapping="Wrap" Margin="0,277,0,0" FontSize="22" Grid.RowSpan="2"/>
         <TextBox Name ="Surname" VerticalAlignment="Top" HorizontalAlignment="Center" Width="165" Height="30" TextWrapping="Wrap" Margin="0,47,0,0" FontSize="22" Grid.Row="1"/>

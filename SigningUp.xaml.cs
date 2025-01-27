@@ -30,7 +30,7 @@ namespace BetApplication
                 string.IsNullOrWhiteSpace(Pesel.Text) ||
                 string.IsNullOrWhiteSpace(CreditCard.Text) ||
                 string.IsNullOrWhiteSpace(Login.Text) ||
-                string.IsNullOrWhiteSpace(Password.Text) ||
+                string.IsNullOrWhiteSpace(Password.Password) ||
                 string.IsNullOrWhiteSpace(Birth_Date.Text))
             {
                 MessageBox.Show("Wszystkie pola muszą być wypełnione!", "Błąd");
@@ -39,7 +39,7 @@ namespace BetApplication
 
             try
             {
-                BettingWindow bettingWindow = new BettingWindow(a.SignUp(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Birth_Date.Text, Login.Text, Password.Text), a);
+                BettingWindow bettingWindow = new BettingWindow(a.SignUp(Firstname.Text, Surname.Text, Pesel.Text, CreditCard.Text, Birth_Date.Text, Login.Text, Password.Password), a);
                 bettingWindow.Show();
                 this.Close();
             }
@@ -51,11 +51,8 @@ namespace BetApplication
         }
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            // Otwórz okno rejestracji
             MainWindow mainW = new MainWindow();
-            mainW.Show();  // Wyświetl okno rejestracji
-
-            // Zamknij obecne okno (MainWindow)
+            mainW.Show();
             this.Close();
         }
     }

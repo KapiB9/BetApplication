@@ -27,7 +27,7 @@ namespace BetApplication
         void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string login = LoginTextBox.Text;
-            string password = PasswordBox.Text;
+            string password = PasswordBox.Password;
 
             try
             {
@@ -52,7 +52,6 @@ namespace BetApplication
         {
             this.Close();
         }
-
     }
 }
 

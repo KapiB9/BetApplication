@@ -70,7 +70,7 @@ namespace BetApplication
 
         public string BalanceString (decimal balance)
         {
-            return balance.ToString();
+            return Math.Round(balance, 2).ToString("C2");
         }
 
         public string Login { get => login; set => login = value; }

@@ -15,7 +15,6 @@ namespace BetApplication
         public Bet() { }
 
 
-
         public  virtual void AddCoupon(User u, decimal bettedMoney, Option option)
         {
             // dodać sprawdzenie czy bettedOn jest na liście pot. zwycięzców
@@ -30,22 +29,6 @@ namespace BetApplication
                 Console.WriteLine("Nieprawidłowa kwota zakładu lub niewystarczające środki.");
             }
         }
-
-        //public void CloseBet(User user, string winner)
-        //{
-        //    active = false;
-        //    foreach (Coupon c in user.currentCoupons)
-        //    {
-        //        if (c.Option.Name != winner)
-        //        {
-        //            c.Option.Stake = 0;
-        //        }
-        //        c.EndCoupon();
-        //        user.currentCoupons.Remove(c);
-        //    }
-        //}
-
-        //public abstract void AdjustStake();
 
         public virtual string ShowStakes()
         {
