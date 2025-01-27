@@ -56,7 +56,7 @@ namespace BetApplication
 
         public override string ToString()
         {
-            return $"{option} - {bettedMoney} z³, stawka: {stakeOnBetting}";
+            return $"{option} - {bettedMoney} z³, stawka: {stakeOnBetting}, potencjalna wygrana {stakeOnBetting * bettedMoney* 0.88m}";
         }
 
         public object Clone()
