@@ -20,9 +20,9 @@ namespace BetApplication
             users = LoadUsers(xmlfile);
         }
 
-        public User SignUp(string firstName, string lastName, string pesel, string creditCard, string login, string password)
+        public User SignUp(string firstName, string lastName, string pesel, string creditCard, string birthDate, string login, string password)
         {
-            User user = new(firstName, lastName, pesel, creditCard, login, password);
+            User user = new(firstName, lastName, pesel, creditCard, birthDate, login, password);
             users.Add(user);
             SaveUsers(xmlfile);
             return user;

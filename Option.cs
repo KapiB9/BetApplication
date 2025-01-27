@@ -20,7 +20,11 @@ namespace BetApplication
         public Option(string name) : base()
         {
             this.Name = name;
-            Stake = 1.5m;
+            Random random = new Random();
+            decimal min = 1.5m;
+            decimal max = 3.20m;
+            decimal res = (decimal)random.NextDouble() * (max - min) + min;
+            Stake = Math.Round(res, 2);
         }
 
         public override string ToString()
