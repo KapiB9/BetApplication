@@ -38,36 +38,19 @@ namespace BetApplication
             User.BalanceAdd(winValue);
         }
 
-        // Metoda do serializacji klasy Coupon jako czêœæ wiêkszej struktury danych
-        //public void SerializeToXml(XmlSerializer serializer, Stream stream)
-        //{
-        //    try
-        //    {
-        //        serializer.Serialize(stream, this);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine($"B³¹d podczas serializacji kuponu: {ex.Message}");
-        //    }
-        //}
 
-        // Konstruktor bezparametrowy wymagany do serializacji
         public Coupon() { }
 
         public override string ToString()
         {
-            return $"{option} - {bettedMoney} z³, stawka: {stakeOnBetting}, potencjalna wygrana {stakeOnBetting * bettedMoney* 0.88m}";
+            return $"{option} - {bettedMoney:C2}, stawka: {stakeOnBetting}, pot. wygrana {stakeOnBetting * bettedMoney* 0.88m:C2}";
         }
 
-        //public object Clone()
-        //{
-        //    return new Coupon(this.user, this.bettedMoney, this.option);
-        //}
+
         public int CompareTo(Coupon other)
         {
             if (other == null) return 1;
 
-            // Porównanie na podstawie kwoty zak³adu w kolejnoœci malej¹cej
             return other.BettedMoney.CompareTo(this.BettedMoney);
         }
     }
