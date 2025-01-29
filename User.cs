@@ -96,7 +96,7 @@ namespace BetApplication
             Balance = 0;
         }
 
-        public User(string firstName, string lastName, string pesel, string creditCard, string birthDate, string login, string password) : base()
+        public User(string firstName, string lastName, string pesel, string creditCard, string birthDate, string login, string password) : this()
         {
             FirstName = firstName;
             LastName = lastName;
